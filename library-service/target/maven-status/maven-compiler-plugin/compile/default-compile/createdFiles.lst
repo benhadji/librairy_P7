@@ -1,0 +1,6 @@
+org\WebService\service\services\EditorService.class
+org\WebService\service\AbstractService.class
+org\WebService\service\services\AuthorService.class
+org\WebService\service\services\BorrowService.class
+org\WebService\service\services\UserService.class
+org\WebService\service\services\BookService.class

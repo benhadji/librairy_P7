@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+        <bean id="abstractManager" abstract="true">
+            <property name="daoFactory" ref="daoFactory" />
+        </bean>
+
+        <!-- ===== Déclaration des Managers ===== -->
+        <bean id="authorManager" class="org.WebService.business.impl.manager.AuthorManagerImpl"
+              parent="abstractManager" />
+
+        <bean id="bookManager" class="org.WebService.business.impl.manager.BookManagerImpl"
+              parent="abstractManager"/>
+
+        <bean id="borrowManager" class="org.WebService.business.impl.manager.BorrowManagerImpl"
+              parent="abstractManager"/>
+
+        <bean id="editorManager" class="org.WebService.business.impl.manager.EditorManagerImpl"
+              parent="abstractManager"/>
+
+        <bean id="userAccountManager" class="org.WebService.business.impl.manager.UserAccountManagerImpl"
+              parent="abstractManager"/>
+
+
+        <!-- ===== ManagerFactory ===== -->
+        <bean id="managerFactory" class="org.WebService.business.impl.manager.ManagerFactoryImpl">
+            <property name="authorManager" ref="authorManager"/>
+            <property name="bookManager" ref="bookManager"/>
+            <property name="borrowManager" ref="borrowManager"/>
+            <property name="editorManager" ref="editorManager"/>
+            <property name="userAccountManager" ref="userAccountManager"/>
+
+        </bean>
+
+
+</beans>

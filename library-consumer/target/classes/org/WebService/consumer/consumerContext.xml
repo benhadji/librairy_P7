@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+        <bean id="abstractDao" abstract="true" >
+            <property name="dataSource" ref="dataSource" />
+        </bean>
+
+
+        <!-- ===== Déclaration des DAO ===== -->
+
+        <bean id="authorDao" class="org.WebService.consumer.impl.DAO.AuthorDaoImpl" parent = "abstractDao">
+            <property name="authorRM" ref="authorRM"/>
+        </bean>
+
+
+        <bean id="bookDao" class="org.WebService.consumer.impl.DAO.BookDaoImpl" parent = "abstractDao">
+            <property name="bookRM" ref="bookRM"/>
+        </bean>
+
+
+        <bean id="borrowDao" class="org.WebService.consumer.impl.DAO.BorrowDaoImpl" parent = "abstractDao">
+            <property name="borrowRM" ref="borrowRM"/>
+        </bean>
+
+
+        <bean id="editorDao" class="org.WebService.consumer.impl.DAO.EditorDaoImpl" parent = "abstractDao">
+            <property name="editorRM" ref="editorRM"/>
+        </bean>
+
+
+        <bean id="userDao" class="org.WebService.consumer.impl.DAO.UserAccountDaoImpl" parent = "abstractDao">
+            <property name="userAccountRM" ref="userAccountRM"/>
+        </bean>
+
+        <!-- ===== DaoFactory ===== -->
+        <bean id="daoFactory" class="org.WebService.consumer.impl.DaoFactoryImpl">
+            <property name="authorDAO" ref="authorDao"/>
+            <property name="bookDAO" ref="bookDao"  />
+            <property name="borrowDAO" ref="borrowDao" />
+            <property name="editorDAO" ref="editorDao"  />
+            <property name="userAccountDAO" ref="userDao"  />
+
+        </bean>
+
+        <!-- ===== Déclaration RowMappers ===== -->
+
+        <bean id="authorRM"  class="org.WebService.consumer.impl.RowMapper.AuthorRM"/>
+        <bean id="bookRM" class="org.WebService.consumer.impl.RowMapper.BookRM"/>
+        <bean id="borrowRM" class="org.WebService.consumer.impl.RowMapper.BorrowRM"/>
+        <bean id="editorRM" class="org.WebService.consumer.impl.RowMapper.EditorRM"/>
+        <bean id="userAccountRM" class="org.WebService.consumer.impl.RowMapper.UserAccountRM"/>
+
+    </beans>
+
