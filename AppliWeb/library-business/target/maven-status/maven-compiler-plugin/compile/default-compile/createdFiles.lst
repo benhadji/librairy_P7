@@ -1,0 +1,14 @@
+org\WebService\business\impl\manager\BorrowManagerImpl.class
+org\WebService\business\contract\manager\AuthorManager.class
+org\WebService\business\contract\manager\BookManager.class
+org\WebService\business\impl\manager\BookManagerImpl.class
+org\WebService\business\contract\manager\UserManager.class
+org\WebService\business\impl\manager\EditorManagerImpl.class
+org\WebService\business\contract\manager\EditorManager.class
+org\WebService\business\impl\manager\AuthorManagerImpl.class
+org\WebService\business\impl\manager\UserManagerImpl.class
+org\WebService\App.class
+org\WebService\business\contract\manager\BorrowManager.class
+org\WebService\business\AbstractManager.class
+org\WebService\business\impl\manager\ManagerFactoryImpl.class
+org\WebService\business\contract\manager\ManagerFactory.class

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="library-batch" />
+        <module name="library-business" />
+        <module name="library-consumer" />
+        <module name="library-model" />
+        <module name="library-webapp" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="library" target="1.5" />
+      <module name="library-batch" target="1.8" />
+      <module name="library-business" target="1.8" />
+      <module name="library-consumer" target="1.8" />
+      <module name="library-model" target="1.8" />
+      <module name="library-webapp" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

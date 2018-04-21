@@ -1,0 +1,13 @@
+org\WebService\consumer\contract\Dao\BorrowDao.class
+org\WebService\consumer\contract\Dao\EditorDao.class
+org\WebService\consumer\contract\Dao\UserDao.class
+org\WebService\consumer\impl\Dao\EditorDaoImpl.class
+org\WebService\consumer\impl\Dao\AuthorDaoImpl.class
+org\WebService\consumer\impl\Dao\BookDaoImpl.class
+org\WebService\consumer\contract\DaoFactory.class
+org\WebService\consumer\impl\Dao\UserDaoImpl.class
+org\WebService\consumer\contract\Dao\BookDao.class
+org\WebService\App.class
+org\WebService\consumer\contract\Dao\AuthorDao.class
+org\WebService\consumer\impl\DaoFactoryImpl.class
+org\WebService\consumer\impl\Dao\BorrowDaoImpl.class

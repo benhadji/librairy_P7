@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ===== Déclaration des DAO ===== -->
+
+    <bean id="authorDao" class="org.WebService.consumer.impl.Dao.AuthorDaoImpl"/>
+    <bean id="bookDao" class="org.WebService.consumer.impl.Dao.BookDaoImpl"/>
+    <bean id="borrowDao" class="org.WebService.consumer.impl.Dao.BorrowDaoImpl"/>
+    <bean id="editorDao" class="org.WebService.consumer.impl.Dao.EditorDaoImpl"/>
+    <bean id="userDao" class="org.WebService.consumer.impl.Dao.UserDaoImpl"/>
+
+    <!-- ===== DaoFactory ===== -->
+    <bean id="daoFactory" class="org.WebService.consumer.impl.DaoFactoryImpl">
+        <property name="authorDAO" ref="authorDao"/>
+        <property name="bookDAO" ref="bookDao"  />
+        <property name="borrowDAO" ref="borrowDao" />
+        <property name="editorDAO" ref="editorDao"  />
+        <property name="userDAO" ref="userDao"  />
+
+    </bean>
+
+
+
+</beans>

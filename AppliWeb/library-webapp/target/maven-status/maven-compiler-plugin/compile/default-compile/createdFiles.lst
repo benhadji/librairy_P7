@@ -1,0 +1,13 @@
+org\WebService\resource\AbstractResource.class
+org\WebService\webapp\interceptor\AuthenticationInterceptor.class
+org\WebService\webapp\action\HomeAction.class
+org\WebService\webapp\action\BookListAction.class
+org\WebService\webapp\action\ContactAction.class
+org\WebService\webapp\action\SignUpAction.class
+org\WebService\webapp\action\MyAccountAction.class
+org\WebService\webapp\converter\StringToDateConverter.class
+org\WebService\webapp\action\ExtendBorrowAction.class
+org\WebService\webapp\action\HomeMembreAction.class
+org\WebService\webapp\action\LogoutAction.class
+org\WebService\webapp\action\LogInAction.class
+org\WebService\webapp\action\SearchAction.class
