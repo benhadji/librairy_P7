@@ -17,7 +17,7 @@ public class BookService extends AbstractService {
     }
 
     @WebMethod
-    public Book getById(long isbn) {
+    public Book getById(Integer isbn) {
         return getManagerFactory().getBookManager().getBook(isbn);
     }
 

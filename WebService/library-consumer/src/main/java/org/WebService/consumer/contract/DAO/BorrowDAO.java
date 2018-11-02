@@ -10,8 +10,8 @@ public interface BorrowDAO{
     void update(Borrow borrow);
     void markAsExtended(Borrow borrow);
     List<Borrow> getLateReturns();
-
     List<Borrow> getByUserEmail(String email);
-
     List<Borrow> getListBorrows();
+    List<Borrow> getBorrowByBook(String title);
+    Borrow getBorrowById(int id);
 }

@@ -45,7 +45,7 @@ public class BookDaoImpl extends AbstractDaoImpl implements BookDAO {
     }
 
     @Override
-    public Book getById(long isbn) {
+    public Book getById(Integer isbn) {
         String vSQL = "SELECT * FROM public.book WHERE isbn = :isbn";
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
         MapSqlParameterSource vParams = new MapSqlParameterSource("isbn", isbn);
@@ -85,7 +85,8 @@ public class BookDaoImpl extends AbstractDaoImpl implements BookDAO {
     @Override
     public List<Book> getByAuthor(Author author) {
 
-        String vSQL = "SELECT book.* FROM public.book JOIN public.author ON book.author_id = author.id WHERE author.firstname = :firstName";
+        String vSQL = "SELECT book.* FROM public.book JOIN public.author " +
+                "ON book.author_id = author.id WHERE author.firstname = :firstName";
 
         SqlParameterSource vParams = new BeanPropertySqlParameterSource(author);
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());

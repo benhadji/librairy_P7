@@ -9,7 +9,7 @@ import java.util.List;
 public class BookManagerImpl extends AbstractManagerImpl implements BookManager {
 
     @Override
-    public Book getBook(long id) {
+    public Book getBook(Integer id) {
 
         return getDaoFactory().getBookDAO().getById(id);
 

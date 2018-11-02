@@ -13,7 +13,6 @@ public interface BorrowManager {
     void updateBorrow(Borrow borrow);
     void markAsExtended(Borrow borrow);
     List<Borrow> getLateBorrows();
-
-
-
+    List<Borrow> getBorrowByBook(String title);
+    Borrow getByID(int id);
 }

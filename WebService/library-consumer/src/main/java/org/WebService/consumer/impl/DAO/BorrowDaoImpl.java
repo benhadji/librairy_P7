@@ -118,4 +118,33 @@ public class BorrowDaoImpl extends AbstractDaoImpl implements BorrowDAO {
         List<Borrow> borrows = vJdbcTemplate.query(sql,borrowRM);
         return borrows;
     }
+
+    @Override
+    public List<Borrow> getBorrowByBook(String title) {
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+
+        String vSQL = "SELECT * from public.borrow join public.book " +
+                "on borrow.ISBN = book.ISBN " +
+                "where book.title ="+title;
+
+        try {
+            List<Borrow> borrows = vJdbcTemplate.query(vSQL,borrowRM);
+            return borrows;
+        } catch (EmptyResultDataAccessException vEx) {
+            return null;
+        }
+    }
+
+    @Override
+    public Borrow getBorrowById(int id) {
+        String vSQL = "SELECT * FROM public.borrow WHERE id = :id";
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        MapSqlParameterSource vParams = new MapSqlParameterSource("id", id);
+        try {
+            Borrow borrow = vJdbcTemplate.queryForObject(vSQL, vParams, borrowRM);
+            return borrow;
+        } catch (EmptyResultDataAccessException vEx) {
+            return null;
+        }
+    }
 }
