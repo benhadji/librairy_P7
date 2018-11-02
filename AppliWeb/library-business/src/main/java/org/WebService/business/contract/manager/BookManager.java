@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface BookManager {
 
-    Book getBook(long id);
+    Book getBook(Integer id);
     List<Book> getAllBooks();
     List<Book> getBookByName(String name);
 

@@ -8,6 +8,7 @@ import org.webservice.service.services.UserAccount;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -16,15 +17,18 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
     private List<Borrow> borrows = new ArrayList<>();
     private String email;
     private Map<String, Object> session;
-    private Book book;
+    private Date currentDate;
 
-    public Book getBook() {
-        return book;
+
+
+    public Date getCurrentDate() {
+        return currentDate;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setCurrentDate(Date currentDate) {
+        this.currentDate = currentDate;
     }
+
 
     public String getEmail() {
         return email;
@@ -53,10 +57,16 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
 
     public String execute() throws Exception {
 
+        currentDate = new Date();
         UserAccount user = (UserAccount)session.get("sessionUserAccount");
         email = user.getEmail();
 
         borrows = getManagerFactory().getBorrowManager().getBorrowByUserEmail(email);
+
+        for (Borrow borrow : borrows){
+            Book book = getManagerFactory().getBookManager().getBook(borrow.getISBN());
+            borrow.setBook(book);
+        }
 
         return "success";
     }

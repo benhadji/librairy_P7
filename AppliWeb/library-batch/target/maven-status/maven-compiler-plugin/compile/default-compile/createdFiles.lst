@@ -1,5 +1,5 @@
 org\WebService\batch\BatchTasklet.class
 org\WebService\batch\Scheduler.class
-org\WebService\batch\MailSenderService.class
 org\WebService\App.class
+org\WebService\batch\EnvoiMessage.class
 org\WebService\batch\AbstractManager.class

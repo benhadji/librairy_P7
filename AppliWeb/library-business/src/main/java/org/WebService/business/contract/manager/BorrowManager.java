@@ -14,7 +14,7 @@ public interface BorrowManager {
 
     Borrow getBorrow(Borrow borrow);
 
-    List<Borrow> getBorrowByISBN(Integer ISBN);
+    List<Borrow> getBorrowByBook(String title);
 
     List<Borrow> listBorrow(Borrow borrow);
 
@@ -22,8 +22,7 @@ public interface BorrowManager {
     List<Borrow> getBorrowByUserEmail(String email);
 
     void markAsExtended(Borrow borrow);
-    Borrow getById(Integer id);
 
 
-
+    Borrow getById(int parseInt);
 }

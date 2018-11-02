@@ -46,7 +46,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public Book getBook(long id) {
+    public Book getBook(Integer id) {
         return bookSrv.getById(id);
     }
 }

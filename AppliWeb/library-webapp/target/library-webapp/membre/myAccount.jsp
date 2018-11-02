@@ -111,17 +111,21 @@
         <s:iterator value="borrows">
             <tr>
                 <td><s:property value="book.title"/></td>
-                <td><s:property value="startDate"/></td>
-                <td><s:property value="endDate"/></td>
-                <s:if test="%{!isExtended()}">
+                <td><s:property value="startDate.toGregorianCalendar().getTime()"/></td>
+                <td><s:property value="endDate.toGregorianCalendar().getTime()"/></td>
+
+                <s:if test="%{!isExtended() && endDate.toGregorianCalendar().time.after(currentDate)}">
                     <s:url var="url" action="extendBorrow">
                         <s:param name="id"><s:property value="id"/></s:param>
                     </s:url>
                     <td><a href="${url}">Prolonger</a></td>
                 </s:if>
-                <s:else>
-                    <td>A deja été prolongé 1 fois !</td>
-                </s:else>
+                <s:elseif test="%{endDate.toGregorianCalendar().time.before(currentDate)}">
+                    <td>Livre à rendre</td>
+                </s:elseif>
+                <s:elseif test="%{isExtended()}">
+                    <td>Deja prolongé</td>
+                </s:elseif>
             </tr>
         </s:iterator>
         </tbody>
