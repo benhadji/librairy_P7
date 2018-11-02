@@ -27,18 +27,15 @@ public interface AuthorService {
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns org.webservice.service.services.Author
+     *     returns java.util.List<org.webservice.service.services.Author>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAuthorById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorById")
-    @ResponseWrapper(localName = "getAuthorByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByIdResponse")
-    @Action(input = "http://services.service.WebService.org/AuthorService/getAuthorByIdRequest", output = "http://services.service.WebService.org/AuthorService/getAuthorByIdResponse")
-    public Author getAuthorById(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
+    @RequestWrapper(localName = "listAuthors", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthors")
+    @ResponseWrapper(localName = "listAuthorsResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthorsResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/listAuthorsRequest", output = "http://services.service.WebService.org/AuthorService/listAuthorsResponse")
+    public List<Author> listAuthors();
 
     /**
      * 
@@ -57,15 +54,18 @@ public interface AuthorService {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns java.util.List<org.webservice.service.services.Author>
+     *     returns org.webservice.service.services.Author
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listAuthors", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthors")
-    @ResponseWrapper(localName = "listAuthorsResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthorsResponse")
-    @Action(input = "http://services.service.WebService.org/AuthorService/listAuthorsRequest", output = "http://services.service.WebService.org/AuthorService/listAuthorsResponse")
-    public List<Author> listAuthors();
+    @RequestWrapper(localName = "getAuthorById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorById")
+    @ResponseWrapper(localName = "getAuthorByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByIdResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/getAuthorByIdRequest", output = "http://services.service.WebService.org/AuthorService/getAuthorByIdResponse")
+    public Author getAuthorById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
 
     /**
      * 

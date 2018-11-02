@@ -39,6 +39,21 @@ public interface UserService {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns org.webservice.service.services.UserAccount
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findUserByEmail", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmail")
+    @ResponseWrapper(localName = "findUserByEmailResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmailResponse")
+    @Action(input = "http://services.service.WebService.org/UserService/findUserByEmailRequest", output = "http://services.service.WebService.org/UserService/findUserByEmailResponse")
+    public UserAccount findUserByEmail(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
      */
     @WebMethod
     @RequestWrapper(localName = "createUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUser")
@@ -62,20 +77,5 @@ public interface UserService {
         UserAccount arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns org.webservice.service.services.UserAccount
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findUserByEmail", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmail")
-    @ResponseWrapper(localName = "findUserByEmailResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmailResponse")
-    @Action(input = "http://services.service.WebService.org/UserService/findUserByEmailRequest", output = "http://services.service.WebService.org/UserService/findUserByEmailResponse")
-    public UserAccount findUserByEmail(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
 
 }

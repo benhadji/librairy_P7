@@ -24,8 +24,8 @@ public class BorrowManagerImpl extends AbstractManager implements BorrowManager 
     }
 
     @Override
-    public List<Borrow> getBorrowByISBN(Integer ISBN) {
-        return getDaoFactory().getBorrowDAO().getBorrowByISBN(ISBN);
+    public List<Borrow> getBorrowByBook(String title) {
+        return getDaoFactory().getBorrowDAO().getBorrowByBook(title);
     }
 
     @Override
@@ -50,7 +50,9 @@ public class BorrowManagerImpl extends AbstractManager implements BorrowManager 
     }
 
     @Override
-    public Borrow getById(Integer id) {
-        return getDaoFactory().getBorrowDAO().getById(id);
+    public Borrow getById(int parseInt) {
+        return getDaoFactory().getBorrowDAO().getByID(parseInt);
     }
+
+
 }

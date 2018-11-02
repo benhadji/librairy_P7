@@ -14,7 +14,7 @@ public class BookManagerImpl extends AbstractManager implements BookManager {
 
 
     @Override
-    public Book getBook(long id) {
+    public Book getBook(Integer id) {
         return getDaoFactory().getBookDAO().getBook(id);
     }
 

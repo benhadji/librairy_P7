@@ -52,11 +52,11 @@
                 <configuration>
                     <sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
                     <wsdlUrls>
-                        <wsdlUrl>http://lfr023221:8080/library-service3419240928804445017/Author?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service3419240928804445017/Book?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service3419240928804445017/Borrow?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service3419240928804445017/Editor?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service3419240928804445017/User?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service46650661518080117553/Author?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service46650661518080117553/Book?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service46650661518080117553/Borrow?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service46650661518080117553/Editor?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service46650661518080117553/User?wsdl</wsdlUrl>
                     </wsdlUrls>
                 </configuration>
             </plugin>

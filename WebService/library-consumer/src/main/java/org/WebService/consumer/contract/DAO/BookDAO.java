@@ -9,7 +9,7 @@ import java.util.List;
 public interface BookDAO {
 
     void create(Book book);
-    Book getById(long id);
+    Book getById(Integer id);
     List<Book> getAllBooks();
     List<Book> getByName(String name);
     List<Book> getByAuthor(Author author);

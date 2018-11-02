@@ -1,8 +1,10 @@
 package org.WebService.business.impl.manager;
 
 import org.WebService.business.contract.manager.BorrowManager;
+import org.WebService.model.Book;
 import org.WebService.model.Borrow;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class BorrowManagerImpl extends AbstractManagerImpl implements BorrowManager {
@@ -10,7 +12,9 @@ public class BorrowManagerImpl extends AbstractManagerImpl implements BorrowMana
 
     @Override
     public List<Borrow> getBorrowByUserEmail(String email) {
+
         return getDaoFactory().getBorrowDAO().getByUserEmail(email);
+
     }
 
     @Override
@@ -39,4 +43,16 @@ public class BorrowManagerImpl extends AbstractManagerImpl implements BorrowMana
     public List<Borrow> getLateBorrows() {
         return getDaoFactory().getBorrowDAO().getLateReturns();
     }
+
+    @Override
+    public List<Borrow> getBorrowByBook(String title) {
+        return getDaoFactory().getBorrowDAO().getBorrowByBook(title);
+    }
+
+    @Override
+    public Borrow getByID(int id) {
+        return getDaoFactory().getBorrowDAO().getBorrowById(id);
+    }
+
+
 }

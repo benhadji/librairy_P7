@@ -47,10 +47,7 @@ public class BorrowDaoImpl implements BorrowDao {
         return null;
     }
 
-    @Override
-    public List<Borrow> getBorrowByISBN(Integer ISBN) {
-        return borrowSrv.getBorrowByBook(ISBN);
-    }
+
 
     @Override
     public List<Borrow> listBorrow(Borrow borrow) {
@@ -73,7 +70,12 @@ public class BorrowDaoImpl implements BorrowDao {
     }
 
     @Override
-    public Borrow getById(Integer id) {
-        return borrowSrv.getBorrowById(id);
+    public List<Borrow> getBorrowByBook(String title) {
+        return borrowSrv.getBorrowByBook(title);
+    }
+
+    @Override
+    public Borrow getByID(int parseInt) {
+        return borrowSrv.getBorrowById(parseInt);
     }
 }

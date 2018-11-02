@@ -48,8 +48,15 @@ public class BorrowService extends AbstractService {
         return getManagerFactory().getBorrowManager().getLateBorrows();
     }
 
+    @WebMethod
+    public List<Borrow> getBorrowByBook(String title){
+        return getManagerFactory().getBorrowManager().getBorrowByBook(title);
+    }
 
-
+    @WebMethod
+    public Borrow getBorrowById(Integer id){
+        return getManagerFactory().getBorrowManager().getByID(id);
+    }
 
 
 
