@@ -9,5 +9,6 @@ public interface EditorManager {
     List<Editor> getByName(String name);
     List<Editor> getAllEditors();
     Editor getByID(Integer id);
+    Editor getByBookTitle(String title);
 
 }

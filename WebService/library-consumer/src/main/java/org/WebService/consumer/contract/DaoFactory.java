@@ -19,6 +19,9 @@ public interface DaoFactory {
     UserAccountDAO getUserAccountDAO();
     void setUserAccountDAO(UserAccountDAO userAccountDAO);
 
+    ReservationDAO getReservationDAO();
+    void setReservationDAO(ReservationDAO reservationDAO);
+
 
 
 }

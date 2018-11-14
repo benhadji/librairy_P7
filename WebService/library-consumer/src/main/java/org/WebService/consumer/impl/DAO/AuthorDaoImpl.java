@@ -56,6 +56,20 @@ public class AuthorDaoImpl extends AbstractDaoImpl implements AuthorDAO {
 
     }
 
+    @Override
+    public Author getAuthorByBookTitle(String title) {
+        String vSQL = "select * from public.author join book b on author.id = b.author_id " +
+                "where b.title = :title";
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        MapSqlParameterSource vParams = new MapSqlParameterSource("title", title);
+        try {
+            Author author = vJdbcTemplate.queryForObject(vSQL, vParams, authorRM);
+            return author;
+        } catch (EmptyResultDataAccessException vEx) {
+            return null;
+        }
+    }
+
 
     @Override
     public List<Author> getAllAuthors() {
@@ -82,6 +96,8 @@ public class AuthorDaoImpl extends AbstractDaoImpl implements AuthorDAO {
             return null;
         }
     }
+
+
 
 
 }

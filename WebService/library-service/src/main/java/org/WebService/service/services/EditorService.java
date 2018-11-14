@@ -25,6 +25,10 @@ public class EditorService extends AbstractService {
         return getManagerFactory().getEditorManager().getByID(id);
     }
 
+    @WebMethod
+    public Editor getEditorByBookTitle(String title) {
+        return getManagerFactory().getEditorManager().getByBookTitle(title);
+    }
 
 
 

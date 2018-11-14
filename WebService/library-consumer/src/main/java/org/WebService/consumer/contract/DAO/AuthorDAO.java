@@ -11,6 +11,7 @@ public interface AuthorDAO {
     Author getById(Integer id);
     List<Author> getAllAuthors();
     List<Author> getByName(String name);
+    Author getAuthorByBookTitle(String title);
 
 
 }

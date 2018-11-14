@@ -4,6 +4,7 @@ import org.WebService.resource.AbstractResource;
 import org.apache.struts2.interceptor.SessionAware;
 import org.webservice.service.services.Book;
 import org.webservice.service.services.Borrow;
+import org.webservice.service.services.Reservation;
 import org.webservice.service.services.UserAccount;
 
 
@@ -18,7 +19,6 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
     private String email;
     private Map<String, Object> session;
     private Date currentDate;
-
 
 
     public Date getCurrentDate() {

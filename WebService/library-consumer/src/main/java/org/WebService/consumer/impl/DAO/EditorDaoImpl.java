@@ -82,5 +82,19 @@ public class EditorDaoImpl extends AbstractDaoImpl implements EditorDAO {
 
     }
 
+    @Override
+    public Editor getByBookTitle(String title) {
+        String vSQL = "select * from public.editor join book b on editor.id = b.editor_id " +
+                "where b.title = :title";
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        MapSqlParameterSource vParams = new MapSqlParameterSource("title", title);
+        try {
+            Editor editor = vJdbcTemplate.queryForObject(vSQL, vParams, editorRM);
+            return editor;
+        } catch (EmptyResultDataAccessException vEx) {
+            return null;
+        }
+    }
+
 
 }

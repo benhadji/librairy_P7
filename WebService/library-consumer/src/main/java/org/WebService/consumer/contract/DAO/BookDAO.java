@@ -12,6 +12,6 @@ public interface BookDAO {
     Book getById(Integer id);
     List<Book> getAllBooks();
     List<Book> getByName(String name);
-    List<Book> getByAuthor(Author author);
+    List<Book> getBooksByAuthor(Author author);
 
 }

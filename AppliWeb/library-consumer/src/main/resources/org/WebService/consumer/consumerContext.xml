@@ -10,6 +10,7 @@
     <bean id="borrowDao" class="org.WebService.consumer.impl.Dao.BorrowDaoImpl"/>
     <bean id="editorDao" class="org.WebService.consumer.impl.Dao.EditorDaoImpl"/>
     <bean id="userDao" class="org.WebService.consumer.impl.Dao.UserDaoImpl"/>
+    <bean id="reservationDao" class="org.WebService.consumer.impl.Dao.ReservationDaoImpl"/>
 
     <!-- ===== DaoFactory ===== -->
     <bean id="daoFactory" class="org.WebService.consumer.impl.DaoFactoryImpl">
@@ -18,6 +19,7 @@
         <property name="borrowDAO" ref="borrowDao" />
         <property name="editorDAO" ref="editorDao"  />
         <property name="userDAO" ref="userDao"  />
+        <property name="reservationDAO" ref="reservationDao"  />
 
     </bean>
 

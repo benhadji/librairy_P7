@@ -42,15 +42,18 @@ public interface BookService {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns java.util.List<org.webservice.service.services.Book>
+     *     returns org.webservice.service.services.Book
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllBooks", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooks")
-    @ResponseWrapper(localName = "getAllBooksResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooksResponse")
-    @Action(input = "http://services.service.WebService.org/BookService/getAllBooksRequest", output = "http://services.service.WebService.org/BookService/getAllBooksResponse")
-    public List<Book> getAllBooks();
+    @RequestWrapper(localName = "getById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetById")
+    @ResponseWrapper(localName = "getByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetByIdResponse")
+    @Action(input = "http://services.service.WebService.org/BookService/getByIdRequest", output = "http://services.service.WebService.org/BookService/getByIdResponse")
+    public Book getById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
 
     /**
      * 
@@ -69,17 +72,14 @@ public interface BookService {
 
     /**
      * 
-     * @param arg0
      * @return
-     *     returns org.webservice.service.services.Book
+     *     returns java.util.List<org.webservice.service.services.Book>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetById")
-    @ResponseWrapper(localName = "getByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetByIdResponse")
-    @Action(input = "http://services.service.WebService.org/BookService/getByIdRequest", output = "http://services.service.WebService.org/BookService/getByIdResponse")
-    public Book getById(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
+    @RequestWrapper(localName = "getAllBooks", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooks")
+    @ResponseWrapper(localName = "getAllBooksResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooksResponse")
+    @Action(input = "http://services.service.WebService.org/BookService/getAllBooksRequest", output = "http://services.service.WebService.org/BookService/getAllBooksResponse")
+    public List<Book> getAllBooks();
 
 }

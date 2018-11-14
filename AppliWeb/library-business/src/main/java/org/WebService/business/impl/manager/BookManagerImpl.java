@@ -28,4 +28,9 @@ public class BookManagerImpl extends AbstractManager implements BookManager {
         return getDaoFactory().getBookDAO().getBookByName(name);
     }
 
+    @Override
+    public List<Book> getBooksByAuthor(Author author) {
+        return getDaoFactory().getBookDAO().getBookByAuthor(author);
+    }
+
 }

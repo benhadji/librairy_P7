@@ -20,4 +20,9 @@ public class EditorManagerImpl extends AbstractManagerImpl implements EditorMana
     public Editor getByID(Integer id) {
         return getDaoFactory().getEditorDAO().getById(id);
     }
+
+    @Override
+    public Editor getByBookTitle(String title) {
+        return getDaoFactory().getEditorDAO().getByBookTitle(title);
+    }
 }

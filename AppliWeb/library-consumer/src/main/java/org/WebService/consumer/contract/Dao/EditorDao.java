@@ -10,6 +10,6 @@ public interface EditorDao {
 
     Editor getEditor(Editor editor);
     List<Editor> listEditors();
-
+    Editor getByBookTitle(String title);
     Editor getById(Integer editorId);
 }

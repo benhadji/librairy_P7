@@ -19,6 +19,15 @@ public class BookListAction extends AbstractResource implements SessionAware{
     private Author author;
     private Editor editor;
     private Map<String, Object> session;
+    private String ISBN;
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
 
     public Author getAuthor() {
         return author;

@@ -14,5 +14,6 @@ public interface AuthorManager {
     List<Author> listAuthors();
     List<Author> getAuthorByName(String name);
     Author getById(Integer id);
+    Author getAuthorByBookTitle(String title);
 
 }

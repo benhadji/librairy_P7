@@ -24,6 +24,10 @@
     <bean id="userAccountManager" class="org.WebService.business.impl.manager.UserManagerImpl"
           parent="abstractManager"/>
 
+    <bean id="reservationManager" class="org.WebService.business.impl.manager.ReservationManagerImpl"
+          parent="abstractManager"/>
+
+
 
     <!-- ===== ManagerFactory ===== -->
     <bean id="managerFactory" class="org.WebService.business.impl.manager.ManagerFactoryImpl">
@@ -32,6 +36,7 @@
         <property name="borrowManager" ref="borrowManager"/>
         <property name="editorManager" ref="editorManager"/>
         <property name="userAccountManager" ref="userAccountManager"/>
+        <property name="reservationManager" ref="reservationManager"/>
 
     </bean>
 

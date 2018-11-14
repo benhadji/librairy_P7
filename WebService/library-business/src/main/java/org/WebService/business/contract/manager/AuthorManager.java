@@ -11,6 +11,7 @@ public interface AuthorManager {
     void createAuthor(Author author);
     List<Author> getAllAuthors();
     Author getById(Integer id);
+    Author getAuthorByBookTitle(String title);
 
 
 

@@ -10,6 +10,9 @@ public class DaoFactoryImpl implements DaoFactory{
     private BorrowDAO borrowDAO;
     private EditorDAO editorDAO;
     private UserAccountDAO userAccountDAO;
+    private ReservationDAO reservationDAO;
+
+
 
 
     @Override
@@ -60,5 +63,15 @@ public class DaoFactoryImpl implements DaoFactory{
     @Override
     public void setUserAccountDAO(UserAccountDAO userAccountDAO) {
         this.userAccountDAO = userAccountDAO;
+    }
+
+    @Override
+    public ReservationDAO getReservationDAO() {
+        return reservationDAO;
+    }
+
+    @Override
+    public void setReservationDAO(ReservationDAO reservationDAO) {
+        this.reservationDAO = reservationDAO;
     }
 }

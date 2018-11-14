@@ -40,6 +40,33 @@ public interface AuthorService {
     /**
      * 
      * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "createAuthor", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthor")
+    @ResponseWrapper(localName = "createAuthorResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthorResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/createAuthorRequest", output = "http://services.service.WebService.org/AuthorService/createAuthorResponse")
+    public void createAuthor(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Author arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns org.webservice.service.services.Author
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAuthorById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorById")
+    @ResponseWrapper(localName = "getAuthorByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByIdResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/getAuthorByIdRequest", output = "http://services.service.WebService.org/AuthorService/getAuthorByIdResponse")
+    public Author getAuthorById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
+
+    /**
+     * 
+     * @param arg0
      * @return
      *     returns java.util.List<org.webservice.service.services.Author>
      */
@@ -60,23 +87,11 @@ public interface AuthorService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAuthorById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorById")
-    @ResponseWrapper(localName = "getAuthorByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByIdResponse")
-    @Action(input = "http://services.service.WebService.org/AuthorService/getAuthorByIdRequest", output = "http://services.service.WebService.org/AuthorService/getAuthorByIdResponse")
-    public Author getAuthorById(
+    @RequestWrapper(localName = "getAuthorByBooktitle", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByBooktitle")
+    @ResponseWrapper(localName = "getAuthorByBooktitleResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByBooktitleResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/getAuthorByBooktitleRequest", output = "http://services.service.WebService.org/AuthorService/getAuthorByBooktitleResponse")
+    public Author getAuthorByBooktitle(
         @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "createAuthor", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthor")
-    @ResponseWrapper(localName = "createAuthorResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthorResponse")
-    @Action(input = "http://services.service.WebService.org/AuthorService/createAuthorRequest", output = "http://services.service.WebService.org/AuthorService/createAuthorResponse")
-    public void createAuthor(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Author arg0);
+        String arg0);
 
 }
