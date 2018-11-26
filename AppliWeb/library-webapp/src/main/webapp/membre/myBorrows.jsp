@@ -71,15 +71,16 @@
             <div class='h_btm'>
                 <div class='cssmenu'>
                     <ul>
-                        <li class='has-sub'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
-                        <li class='active'><a href="<s:url namespace="/membre" action="myAccount"/>"><span>Mon Compte</span></a></li>
-                        <li class='has-sub'><a href="<s:url namespace="/" action="bookList"/>"><span>Consulter Livres</span></a></li>
+                        <li class='active'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myBorrows"/>"><span>Mes emprunts</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myResa"/>"><span>Mes Reservations</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="logout"/>"><span>Se deconnecter</span></a></li>
                     </ul>
                 </div>
 
                 <div class="search">
-                    <s:form action="search" namespace="/">
+                    <s:form action="search" namespace="/membre">
 
                         <div class="input-group">
                             <input type="text" name="jspName" class="form-control" placeholder="Search for..."/>
@@ -114,17 +115,17 @@
                 <td><s:property value="startDate.toGregorianCalendar().getTime()"/></td>
                 <td><s:property value="endDate.toGregorianCalendar().getTime()"/></td>
 
-                <s:if test="%{!isExtended() && endDate.toGregorianCalendar().time.after(currentDate)}">
+                <s:if test="%{!isExtended() && endDate.toGregorianCalendar().time.before(currentDate)}">
                     <s:url var="url" action="extendBorrow">
                         <s:param name="id"><s:property value="id"/></s:param>
                     </s:url>
                     <td><a href="${url}">Prolonger</a></td>
                 </s:if>
-                <s:elseif test="%{endDate.toGregorianCalendar().time.before(currentDate)}">
+                <s:elseif test="%{endDate.toGregorianCalendar().time.after(currentDate)}">
                     <td>Livre à rendre</td>
                 </s:elseif>
                 <s:elseif test="%{isExtended()}">
-                    <td>Deja prolongé</td>
+                    <td>Deja prolongé.</td>
                 </s:elseif>
             </tr>
         </s:iterator>
