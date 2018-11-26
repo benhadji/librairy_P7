@@ -6,11 +6,20 @@ public class Book {
     private Integer ISBN;
     private String title;
     private Integer nbOfCopy;
+    private Integer copieRestant;
     private Integer year;
     private Integer editor_id;
     private Integer author_id;
     private Author author;
     private Editor editor;
+
+    public Integer getCopieRestant() {
+        return copieRestant;
+    }
+
+    public void setCopieRestant(Integer copieRestant) {
+        this.copieRestant = copieRestant;
+    }
 
     public Author getAuthor() {
         return author;
@@ -75,4 +84,6 @@ public class Book {
     public void setYear(Integer year) {
         this.year = year;
     }
+
+
 }
