@@ -18,17 +18,6 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
     private List<Borrow> borrows = new ArrayList<>();
     private String email;
     private Map<String, Object> session;
-    private Date currentDate;
-
-
-    public Date getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(Date currentDate) {
-        this.currentDate = currentDate;
-    }
-
 
     public String getEmail() {
         return email;
@@ -55,20 +44,27 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
         this.session = session;
     }
 
-    public String execute() throws Exception {
+    public String execute() {
 
-        currentDate = new Date();
-        UserAccount user = (UserAccount)session.get("sessionUserAccount");
-        email = user.getEmail();
+        if(session.containsKey("sessionUserAccount")) {
 
-        borrows = getManagerFactory().getBorrowManager().getBorrowByUserEmail(email);
+            UserAccount user = (UserAccount)session.get("sessionUserAccount");
+            email = user.getEmail();
 
-        for (Borrow borrow : borrows){
-            Book book = getManagerFactory().getBookManager().getBook(borrow.getISBN());
-            borrow.setBook(book);
+            borrows = getManagerFactory().getBorrowManager().getBorrowByUserEmail(email);
+
+            for (Borrow borrow : borrows){
+                Book book = getManagerFactory().getBookManager().getBook(borrow.getISBN());
+                borrow.setBook(book);
+            }
+
+            return "success";
+
         }
+        else
+            return LOGIN;
 
-        return "success";
+
     }
 
 
