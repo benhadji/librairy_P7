@@ -31,14 +31,6 @@
             <result name="success">/WEB-INF/contact.jsp</result>
         </action>
 
-        <action name="search" class="org.WebService.webapp.action.SearchAction" method="execute">
-            <result name="success">/WEB-INF/resultSearch.jsp</result>
-        </action>
-
-        <action name="bookList" class="org.WebService.webapp.action.BookListAction" method="execute">
-            <result name="success">/WEB-INF/bookList.jsp</result>
-            <result name="login">/WEB-INF/login.jsp</result>
-        </action>
 
 
 
@@ -71,15 +63,39 @@
         <action name="extendBorrow" class="org.WebService.webapp.action.ExtendBorrowAction" method="execute">
             <result name="home">/membre/home.jsp</result>
             <result name="login">/WEB-INF/login.jsp</result>
-            <result name="success">/membre/myAccount.jsp</result>
-
+            <result name="success">/membre/myBorrows.jsp</result>
         </action>
 
-        <action name="myAccount" class="org.WebService.webapp.action.MyAccountAction" method="execute">
-            <result name="success">/membre/myAccount.jsp</result>
+        <action name="bookList" class="org.WebService.webapp.action.BookListAction" method="execute">
+            <result name="success">/WEB-INF/bookList.jsp</result>
             <result name="login">/WEB-INF/login.jsp</result>
         </action>
 
+        <action name="search" class="org.WebService.webapp.action.SearchAction" method="execute">
+            <result name="success">/membre/resultSearch.jsp</result>
+            <result name="login">/WEB-INF/login.jsp</result>
+        </action>
+
+
+        <action name="resaBook" class="org.WebService.webapp.action.ResaBookAction" method="execute">
+            <result name="login">/WEB-INF/login.jsp</result>
+            <result name="success">/membre/resultSearch.jsp</result>
+        </action>
+
+        <action name="myResa" class="org.WebService.webapp.action.MyResaAction" method="execute">
+            <result name="login">/WEB-INF/login.jsp</result>
+            <result name="success">/membre/myResa.jsp</result>
+        </action>
+
+        <action name="myBorrows" class="org.WebService.webapp.action.MyAccountAction" method="execute">
+            <result name="success">/membre/myBorrows.jsp</result>
+            <result name="login">/WEB-INF/login.jsp</result>
+        </action>
+
+        <action name="deleteResa" class="org.WebService.webapp.action.DeleteReservationAction" method="execute">
+            <result name="success">/membre/myResa.jsp</result>
+            <result name="login">/WEB-INF/login.jsp</result>
+        </action>
 
 
     </package>
