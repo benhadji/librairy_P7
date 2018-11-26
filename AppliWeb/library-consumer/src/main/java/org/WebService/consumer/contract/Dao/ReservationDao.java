@@ -13,6 +13,5 @@ public interface ReservationDao {
     List<Reservation> listResaByBook(Book book);
     void updateReservation(Reservation reservation);
     void deleteReservation(Reservation reservation);
-
-
+    Reservation getById(int id);
 }

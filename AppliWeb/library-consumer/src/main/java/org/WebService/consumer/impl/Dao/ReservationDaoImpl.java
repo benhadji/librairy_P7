@@ -55,4 +55,9 @@ public class ReservationDaoImpl implements ReservationDao {
     public void deleteReservation(Reservation reservation) {
         resaSrv.deleteReservation(reservation);
     }
+
+    @Override
+    public Reservation getById(int id) {
+        return resaSrv.getResaById(id);
+    }
 }

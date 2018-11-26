@@ -16,6 +16,6 @@ public interface BorrowDao {
     List<Borrow> getBorrowByEmail(String email);
     void markAsExtended(Borrow borrow);
     List<Borrow> getBorrowByBook(String title);
-
     Borrow getByID(int parseInt);
+    Borrow getClosestBorrow(Integer isbn);
 }

@@ -78,4 +78,9 @@ public class BorrowDaoImpl implements BorrowDao {
     public Borrow getByID(int parseInt) {
         return borrowSrv.getBorrowById(parseInt);
     }
+
+    @Override
+    public Borrow getClosestBorrow(Integer isbn) {
+        return borrowSrv.getClosestBorrow(isbn);
+    }
 }
