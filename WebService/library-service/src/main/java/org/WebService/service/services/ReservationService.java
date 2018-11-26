@@ -38,6 +38,9 @@ public class ReservationService extends AbstractService {
         return getManagerFactory().getReservationManager().listResaByBook(book);
     }
 
-
+    @WebMethod
+    public Reservation getResaById(Integer id){
+        return getManagerFactory().getReservationManager().getResaById(id);
+    }
 
 }
