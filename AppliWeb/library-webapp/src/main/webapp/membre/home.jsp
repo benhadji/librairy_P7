@@ -52,15 +52,15 @@
                 <div class='cssmenu'>
                     <ul>
                         <li class='active'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
-                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myAccount"/>"><span>Mon Compte</span></a></li>
-                        <li class='has-sub'><a href="<s:url namespace="/" action="bookList"/>"><span>Consulter Livres</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myBorrows"/>"><span>Mes emprunts</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myResa"/>"><span>Mes Reservations</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="logout"/>"><span>Se deconnecter</span></a></li>
-
                     </ul>
                 </div>
 
                 <div class="search">
-                    <s:form action="search" namespace="/">
+                    <s:form action="search" namespace="/membre">
 
                         <div class="input-group">
                             <input type="text" name="jspName" class="form-control" placeholder="Search for..."/>
