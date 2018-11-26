@@ -24,16 +24,14 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ListResaByBookResponse_QNAME = new QName("http://services.service.WebService.org/", "listResaByBookResponse");
-    private final static QName _AddReservationResponse_QNAME = new QName("http://services.service.WebService.org/", "addReservationResponse");
-    private final static QName _DeleteReservation_QNAME = new QName("http://services.service.WebService.org/", "deleteReservation");
-    private final static QName _ListResaByUserResponse_QNAME = new QName("http://services.service.WebService.org/", "listResaByUserResponse");
-    private final static QName _UpdateReservationResponse_QNAME = new QName("http://services.service.WebService.org/", "updateReservationResponse");
-    private final static QName _AddReservation_QNAME = new QName("http://services.service.WebService.org/", "addReservation");
-    private final static QName _ListResaByBook_QNAME = new QName("http://services.service.WebService.org/", "listResaByBook");
-    private final static QName _DeleteReservationResponse_QNAME = new QName("http://services.service.WebService.org/", "deleteReservationResponse");
-    private final static QName _ListResaByUser_QNAME = new QName("http://services.service.WebService.org/", "listResaByUser");
-    private final static QName _UpdateReservation_QNAME = new QName("http://services.service.WebService.org/", "updateReservation");
+    private final static QName _CreateUser_QNAME = new QName("http://services.service.WebService.org/", "createUser");
+    private final static QName _ValidateLoginResponse_QNAME = new QName("http://services.service.WebService.org/", "validateLoginResponse");
+    private final static QName _UpdateUser_QNAME = new QName("http://services.service.WebService.org/", "updateUser");
+    private final static QName _ValidateLogin_QNAME = new QName("http://services.service.WebService.org/", "validateLogin");
+    private final static QName _FindUserByEmail_QNAME = new QName("http://services.service.WebService.org/", "findUserByEmail");
+    private final static QName _UpdateUserResponse_QNAME = new QName("http://services.service.WebService.org/", "updateUserResponse");
+    private final static QName _FindUserByEmailResponse_QNAME = new QName("http://services.service.WebService.org/", "findUserByEmailResponse");
+    private final static QName _CreateUserResponse_QNAME = new QName("http://services.service.WebService.org/", "createUserResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.webservice.service.services
@@ -43,107 +41,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AddReservation }
+     * Create an instance of {@link FindUserByEmailResponse }
      * 
      */
-    public AddReservation createAddReservation() {
-        return new AddReservation();
+    public FindUserByEmailResponse createFindUserByEmailResponse() {
+        return new FindUserByEmailResponse();
     }
 
     /**
-     * Create an instance of {@link ListResaByBook }
+     * Create an instance of {@link CreateUserResponse }
      * 
      */
-    public ListResaByBook createListResaByBook() {
-        return new ListResaByBook();
+    public CreateUserResponse createCreateUserResponse() {
+        return new CreateUserResponse();
     }
 
     /**
-     * Create an instance of {@link DeleteReservationResponse }
+     * Create an instance of {@link UpdateUser }
      * 
      */
-    public DeleteReservationResponse createDeleteReservationResponse() {
-        return new DeleteReservationResponse();
+    public UpdateUser createUpdateUser() {
+        return new UpdateUser();
     }
 
     /**
-     * Create an instance of {@link ListResaByUserResponse }
+     * Create an instance of {@link CreateUser }
      * 
      */
-    public ListResaByUserResponse createListResaByUserResponse() {
-        return new ListResaByUserResponse();
+    public CreateUser createCreateUser() {
+        return new CreateUser();
     }
 
     /**
-     * Create an instance of {@link UpdateReservationResponse }
+     * Create an instance of {@link ValidateLoginResponse }
      * 
      */
-    public UpdateReservationResponse createUpdateReservationResponse() {
-        return new UpdateReservationResponse();
+    public ValidateLoginResponse createValidateLoginResponse() {
+        return new ValidateLoginResponse();
     }
 
     /**
-     * Create an instance of {@link UpdateReservation }
+     * Create an instance of {@link FindUserByEmail }
      * 
      */
-    public UpdateReservation createUpdateReservation() {
-        return new UpdateReservation();
+    public FindUserByEmail createFindUserByEmail() {
+        return new FindUserByEmail();
     }
 
     /**
-     * Create an instance of {@link ListResaByUser }
+     * Create an instance of {@link UpdateUserResponse }
      * 
      */
-    public ListResaByUser createListResaByUser() {
-        return new ListResaByUser();
+    public UpdateUserResponse createUpdateUserResponse() {
+        return new UpdateUserResponse();
     }
 
     /**
-     * Create an instance of {@link DeleteReservation }
+     * Create an instance of {@link ValidateLogin }
      * 
      */
-    public DeleteReservation createDeleteReservation() {
-        return new DeleteReservation();
-    }
-
-    /**
-     * Create an instance of {@link ListResaByBookResponse }
-     * 
-     */
-    public ListResaByBookResponse createListResaByBookResponse() {
-        return new ListResaByBookResponse();
-    }
-
-    /**
-     * Create an instance of {@link AddReservationResponse }
-     * 
-     */
-    public AddReservationResponse createAddReservationResponse() {
-        return new AddReservationResponse();
-    }
-
-    /**
-     * Create an instance of {@link Editor }
-     * 
-     */
-    public Editor createEditor() {
-        return new Editor();
-    }
-
-    /**
-     * Create an instance of {@link Author }
-     * 
-     */
-    public Author createAuthor() {
-        return new Author();
-    }
-
-    /**
-     * Create an instance of {@link Book }
-     * 
-     */
-    public Book createBook() {
-        return new Book();
+    public ValidateLogin createValidateLogin() {
+        return new ValidateLogin();
     }
 
     /**
@@ -155,101 +113,75 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Reservation }
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateUser }{@code >}}
      * 
      */
-    public Reservation createReservation() {
-        return new Reservation();
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "createUser")
+    public JAXBElement<CreateUser> createCreateUser(CreateUser value) {
+        return new JAXBElement<CreateUser>(_CreateUser_QNAME, CreateUser.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListResaByBookResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidateLoginResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "listResaByBookResponse")
-    public JAXBElement<ListResaByBookResponse> createListResaByBookResponse(ListResaByBookResponse value) {
-        return new JAXBElement<ListResaByBookResponse>(_ListResaByBookResponse_QNAME, ListResaByBookResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "validateLoginResponse")
+    public JAXBElement<ValidateLoginResponse> createValidateLoginResponse(ValidateLoginResponse value) {
+        return new JAXBElement<ValidateLoginResponse>(_ValidateLoginResponse_QNAME, ValidateLoginResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddReservationResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateUser }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "addReservationResponse")
-    public JAXBElement<AddReservationResponse> createAddReservationResponse(AddReservationResponse value) {
-        return new JAXBElement<AddReservationResponse>(_AddReservationResponse_QNAME, AddReservationResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "updateUser")
+    public JAXBElement<UpdateUser> createUpdateUser(UpdateUser value) {
+        return new JAXBElement<UpdateUser>(_UpdateUser_QNAME, UpdateUser.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteReservation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidateLogin }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "deleteReservation")
-    public JAXBElement<DeleteReservation> createDeleteReservation(DeleteReservation value) {
-        return new JAXBElement<DeleteReservation>(_DeleteReservation_QNAME, DeleteReservation.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "validateLogin")
+    public JAXBElement<ValidateLogin> createValidateLogin(ValidateLogin value) {
+        return new JAXBElement<ValidateLogin>(_ValidateLogin_QNAME, ValidateLogin.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListResaByUserResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindUserByEmail }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "listResaByUserResponse")
-    public JAXBElement<ListResaByUserResponse> createListResaByUserResponse(ListResaByUserResponse value) {
-        return new JAXBElement<ListResaByUserResponse>(_ListResaByUserResponse_QNAME, ListResaByUserResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "findUserByEmail")
+    public JAXBElement<FindUserByEmail> createFindUserByEmail(FindUserByEmail value) {
+        return new JAXBElement<FindUserByEmail>(_FindUserByEmail_QNAME, FindUserByEmail.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateReservationResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateUserResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "updateReservationResponse")
-    public JAXBElement<UpdateReservationResponse> createUpdateReservationResponse(UpdateReservationResponse value) {
-        return new JAXBElement<UpdateReservationResponse>(_UpdateReservationResponse_QNAME, UpdateReservationResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "updateUserResponse")
+    public JAXBElement<UpdateUserResponse> createUpdateUserResponse(UpdateUserResponse value) {
+        return new JAXBElement<UpdateUserResponse>(_UpdateUserResponse_QNAME, UpdateUserResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddReservation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindUserByEmailResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "addReservation")
-    public JAXBElement<AddReservation> createAddReservation(AddReservation value) {
-        return new JAXBElement<AddReservation>(_AddReservation_QNAME, AddReservation.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "findUserByEmailResponse")
+    public JAXBElement<FindUserByEmailResponse> createFindUserByEmailResponse(FindUserByEmailResponse value) {
+        return new JAXBElement<FindUserByEmailResponse>(_FindUserByEmailResponse_QNAME, FindUserByEmailResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListResaByBook }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateUserResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "listResaByBook")
-    public JAXBElement<ListResaByBook> createListResaByBook(ListResaByBook value) {
-        return new JAXBElement<ListResaByBook>(_ListResaByBook_QNAME, ListResaByBook.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteReservationResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "deleteReservationResponse")
-    public JAXBElement<DeleteReservationResponse> createDeleteReservationResponse(DeleteReservationResponse value) {
-        return new JAXBElement<DeleteReservationResponse>(_DeleteReservationResponse_QNAME, DeleteReservationResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ListResaByUser }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "listResaByUser")
-    public JAXBElement<ListResaByUser> createListResaByUser(ListResaByUser value) {
-        return new JAXBElement<ListResaByUser>(_ListResaByUser_QNAME, ListResaByUser.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateReservation }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "updateReservation")
-    public JAXBElement<UpdateReservation> createUpdateReservation(UpdateReservation value) {
-        return new JAXBElement<UpdateReservation>(_UpdateReservation_QNAME, UpdateReservation.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.WebService.org/", name = "createUserResponse")
+    public JAXBElement<CreateUserResponse> createCreateUserResponse(CreateUserResponse value) {
+        return new JAXBElement<CreateUserResponse>(_CreateUserResponse_QNAME, CreateUserResponse.class, null, value);
     }
 
 }

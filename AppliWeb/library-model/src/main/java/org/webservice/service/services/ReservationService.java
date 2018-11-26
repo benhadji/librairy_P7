@@ -27,18 +27,18 @@ public interface ReservationService {
 
     /**
      * 
-     * @param arg1
      * @param arg0
+     * @return
+     *     returns org.webservice.service.services.Reservation
      */
     @WebMethod
-    @RequestWrapper(localName = "addReservation", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservation")
-    @ResponseWrapper(localName = "addReservationResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservationResponse")
-    @Action(input = "http://services.service.WebService.org/ReservationService/addReservationRequest", output = "http://services.service.WebService.org/ReservationService/addReservationResponse")
-    public void addReservation(
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getResaById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetResaById")
+    @ResponseWrapper(localName = "getResaByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetResaByIdResponse")
+    @Action(input = "http://services.service.WebService.org/ReservationService/getResaByIdRequest", output = "http://services.service.WebService.org/ReservationService/getResaByIdResponse")
+    public Reservation getResaById(
         @WebParam(name = "arg0", targetNamespace = "")
-        Book arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        UserAccount arg1);
+        Integer arg0);
 
     /**
      * 
@@ -54,6 +54,21 @@ public interface ReservationService {
     public List<Reservation> listResaByUser(
         @WebParam(name = "arg0", targetNamespace = "")
         UserAccount arg0);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "addReservation", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservation")
+    @ResponseWrapper(localName = "addReservationResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservationResponse")
+    @Action(input = "http://services.service.WebService.org/ReservationService/addReservationRequest", output = "http://services.service.WebService.org/ReservationService/addReservationResponse")
+    public void addReservation(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Book arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        UserAccount arg1);
 
     /**
      * 

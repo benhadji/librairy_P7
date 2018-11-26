@@ -29,21 +29,6 @@ public interface EditorService {
      * 
      * @param arg0
      * @return
-     *     returns org.webservice.service.services.Editor
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getEditorById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorById")
-    @ResponseWrapper(localName = "getEditorByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByIdResponse")
-    @Action(input = "http://services.service.WebService.org/EditorService/getEditorByIdRequest", output = "http://services.service.WebService.org/EditorService/getEditorByIdResponse")
-    public Editor getEditorById(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns java.util.List<org.webservice.service.services.Editor>
      */
     @WebMethod
@@ -54,6 +39,21 @@ public interface EditorService {
     public List<Editor> getEditorByName(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns org.webservice.service.services.Editor
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEditorById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorById")
+    @ResponseWrapper(localName = "getEditorByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByIdResponse")
+    @Action(input = "http://services.service.WebService.org/EditorService/getEditorByIdRequest", output = "http://services.service.WebService.org/EditorService/getEditorByIdResponse")
+    public Editor getEditorById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
 
     /**
      * 

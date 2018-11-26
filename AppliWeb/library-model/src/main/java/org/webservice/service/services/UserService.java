@@ -27,17 +27,14 @@ public interface UserService {
     /**
      * 
      * @param arg0
-     * @return
-     *     returns org.webservice.service.services.UserAccount
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findUserByEmail", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmail")
-    @ResponseWrapper(localName = "findUserByEmailResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmailResponse")
-    @Action(input = "http://services.service.WebService.org/UserService/findUserByEmailRequest", output = "http://services.service.WebService.org/UserService/findUserByEmailResponse")
-    public UserAccount findUserByEmail(
+    @RequestWrapper(localName = "updateUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateUser")
+    @ResponseWrapper(localName = "updateUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateUserResponse")
+    @Action(input = "http://services.service.WebService.org/UserService/updateUserRequest", output = "http://services.service.WebService.org/UserService/updateUserResponse")
+    public void updateUser(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        UserAccount arg0);
 
     /**
      * 
@@ -57,24 +54,27 @@ public interface UserService {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns org.webservice.service.services.UserAccount
      */
     @WebMethod
-    @RequestWrapper(localName = "createUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUser")
-    @ResponseWrapper(localName = "createUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUserResponse")
-    @Action(input = "http://services.service.WebService.org/UserService/createUserRequest", output = "http://services.service.WebService.org/UserService/createUserResponse")
-    public void createUser(
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findUserByEmail", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmail")
+    @ResponseWrapper(localName = "findUserByEmailResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.FindUserByEmailResponse")
+    @Action(input = "http://services.service.WebService.org/UserService/findUserByEmailRequest", output = "http://services.service.WebService.org/UserService/findUserByEmailResponse")
+    public UserAccount findUserByEmail(
         @WebParam(name = "arg0", targetNamespace = "")
-        UserAccount arg0);
+        String arg0);
 
     /**
      * 
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "updateUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateUser")
-    @ResponseWrapper(localName = "updateUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateUserResponse")
-    @Action(input = "http://services.service.WebService.org/UserService/updateUserRequest", output = "http://services.service.WebService.org/UserService/updateUserResponse")
-    public void updateUser(
+    @RequestWrapper(localName = "createUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUser")
+    @ResponseWrapper(localName = "createUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUserResponse")
+    @Action(input = "http://services.service.WebService.org/UserService/createUserRequest", output = "http://services.service.WebService.org/UserService/createUserResponse")
+    public void createUser(
         @WebParam(name = "arg0", targetNamespace = "")
         UserAccount arg0);
 

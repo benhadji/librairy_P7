@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="author" type="{http://services.service.WebService.org/}author" minOccurs="0"/>
  *         &lt;element name="author_id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="copieRestant" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="editor" type="{http://services.service.WebService.org/}editor" minOccurs="0"/>
  *         &lt;element name="editor_id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="ISBN" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -37,6 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "book", propOrder = {
     "author",
     "authorId",
+    "copieRestant",
     "editor",
     "editorId",
     "isbn",
@@ -49,6 +51,7 @@ public class Book {
     protected Author author;
     @XmlElement(name = "author_id")
     protected Integer authorId;
+    protected Integer copieRestant;
     protected Editor editor;
     @XmlElement(name = "editor_id")
     protected Integer editorId;
@@ -104,6 +107,30 @@ public class Book {
      */
     public void setAuthorId(Integer value) {
         this.authorId = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété copieRestant.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public Integer getCopieRestant() {
+        return copieRestant;
+    }
+
+    /**
+     * Définit la valeur de la propriété copieRestant.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setCopieRestant(Integer value) {
+        this.copieRestant = value;
     }
 
     /**
