@@ -15,4 +15,5 @@ public interface BorrowManager {
     List<Borrow> getLateBorrows();
     List<Borrow> getBorrowByBook(String title);
     Borrow getByID(int id);
+    Borrow getClosestBorrow(Integer isbn);
 }

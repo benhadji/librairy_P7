@@ -3,6 +3,7 @@ package org.WebService.business.impl.manager;
 import org.WebService.business.contract.manager.BookManager;
 import org.WebService.model.Author;
 import org.WebService.model.Book;
+import org.WebService.model.UserAccount;
 
 import java.util.List;
 
@@ -26,6 +27,8 @@ public class BookManagerImpl extends AbstractManagerImpl implements BookManager 
     public List<Book> getBooksByAuthor(Author author) {
         return getDaoFactory().getBookDAO().getBooksByAuthor(author);
     }
+
+
 
     @Override
     public List<Book> getAllBooks() {

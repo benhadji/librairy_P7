@@ -21,6 +21,7 @@ public class ReservationManagerImpl extends AbstractManagerImpl implements Reser
     public void addReservation(Book book, UserAccount user) {
 
         int position;
+        boolean nbOfBorrowerReached = false;
         List<Reservation> reservationListByBook = this.listResaByBook(book);
 
         Reservation reservation = new Reservation();
@@ -56,4 +57,11 @@ public class ReservationManagerImpl extends AbstractManagerImpl implements Reser
     public void deleteReservation(Reservation reservation) {
         getDaoFactory().getReservationDAO().deleteReservation(reservation);
     }
+
+    @Override
+    public Reservation getResaById(Integer id) {
+        return getDaoFactory().getReservationDAO().getResaById(id);
+    }
+
+
 }
