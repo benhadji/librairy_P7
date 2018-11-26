@@ -1,5 +1,6 @@
 package org.WebService.consumer.contract.DAO;
 
+import org.WebService.model.Book;
 import org.WebService.model.Borrow;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface BorrowDAO{
     List<Borrow> getListBorrows();
     List<Borrow> getBorrowByBook(String title);
     Borrow getBorrowById(int id);
+    Borrow getClosestBorrow(Integer isbn);
 }

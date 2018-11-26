@@ -2,6 +2,7 @@ package org.WebService.consumer.impl.DAO;
 
 import org.WebService.consumer.contract.DAO.BorrowDAO;
 import org.WebService.consumer.impl.RowMapper.BorrowRM;
+import org.WebService.model.Book;
 import org.WebService.model.Borrow;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -89,8 +90,7 @@ public class BorrowDaoImpl extends AbstractDaoImpl implements BorrowDAO {
 
         String sql = "SELECT * FROM borrow WHERE borrow.enddate < NOW()";
 
-        List<Borrow> borrows = vJdbcTemplate.query(sql,borrowRM);
-        return borrows;
+        return vJdbcTemplate.query(sql,borrowRM);
     }
 
     @Override
@@ -101,8 +101,7 @@ public class BorrowDaoImpl extends AbstractDaoImpl implements BorrowDAO {
         String vSQL = "SELECT * FROM borrow WHERE email = "+var;
 
         try {
-            List<Borrow> borrows = vJdbcTemplate.query(vSQL,borrowRM);
-            return borrows;
+            return vJdbcTemplate.query(vSQL,borrowRM);
         } catch (EmptyResultDataAccessException vEx) {
             return null;
         }
@@ -115,8 +114,20 @@ public class BorrowDaoImpl extends AbstractDaoImpl implements BorrowDAO {
 
         String sql = "SELECT * FROM borrow";
 
-        List<Borrow> borrows = vJdbcTemplate.query(sql,borrowRM);
-        return borrows;
+        return vJdbcTemplate.query(sql,borrowRM);
+    }
+
+    @Override
+    public Borrow getClosestBorrow(Integer isbn) {
+
+        String vSQL = "select * from borrow where isbn=:isbn order by enddate asc fetch first 1 rows only";
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        MapSqlParameterSource vParams = new MapSqlParameterSource("isbn", isbn);
+        try {
+            return vJdbcTemplate.queryForObject(vSQL, vParams, borrowRM);
+        } catch (EmptyResultDataAccessException vEx) {
+            return null;
+        }
     }
 
     @Override
@@ -128,8 +139,7 @@ public class BorrowDaoImpl extends AbstractDaoImpl implements BorrowDAO {
                 "where book.title ="+title;
 
         try {
-            List<Borrow> borrows = vJdbcTemplate.query(vSQL,borrowRM);
-            return borrows;
+            return vJdbcTemplate.query(vSQL,borrowRM);
         } catch (EmptyResultDataAccessException vEx) {
             return null;
         }
@@ -141,10 +151,11 @@ public class BorrowDaoImpl extends AbstractDaoImpl implements BorrowDAO {
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
         MapSqlParameterSource vParams = new MapSqlParameterSource("id", id);
         try {
-            Borrow borrow = vJdbcTemplate.queryForObject(vSQL, vParams, borrowRM);
-            return borrow;
+            return vJdbcTemplate.queryForObject(vSQL, vParams, borrowRM);
         } catch (EmptyResultDataAccessException vEx) {
             return null;
         }
     }
+
+
 }

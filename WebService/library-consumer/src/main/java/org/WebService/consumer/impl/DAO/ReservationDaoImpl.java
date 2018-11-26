@@ -5,6 +5,7 @@ import org.WebService.consumer.impl.RowMapper.ReservationRM;
 import org.WebService.model.Book;
 import org.WebService.model.Reservation;
 import org.WebService.model.UserAccount;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -82,6 +83,21 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
         vJdbcTemplate.update(vSQL, vParams);
 
     }
+
+    @Override
+    public Reservation getResaById(Integer id) {
+
+        String vSQL = "SELECT * FROM public.reservation WHERE reservation.id = :id";
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        MapSqlParameterSource vParams = new MapSqlParameterSource("id", id);
+        try {
+            Reservation reservation = vJdbcTemplate.queryForObject(vSQL, vParams, reservationRM);
+            return reservation;
+        } catch (EmptyResultDataAccessException vEx) {
+            return null;
+        }
+    }
+
 
     @Override
     public List<Reservation> listResaByBook(Book book) {
