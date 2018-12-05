@@ -6,6 +6,7 @@ import org.WebService.model.Book;
 import org.WebService.model.Reservation;
 import org.WebService.model.UserAccount;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -14,6 +15,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import javax.inject.Inject;
 import java.sql.Types;
+import java.util.Date;
 import java.util.List;
 
 public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDAO {
@@ -33,14 +35,15 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
     @Override
     public void addReservation(Reservation reservation) {
 
-        String vSQL = "INSERT INTO reservation (isbn, email, reservationdate, position) " +
-                "VALUES(:isbn, :email, :reservationdate, :position)";
+        String vSQL = "INSERT INTO reservation (isbn, email, reservationdate, position, sendmaildate) " +
+                "VALUES(:isbn, :email, :reservationdate, :position, :sendmaildate)";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
         vParams.addValue("isbn", reservation.getISBN(), Types.INTEGER);
         vParams.addValue("email", reservation.getEmail(), Types.VARCHAR);
         vParams.addValue("reservationdate", reservation.getReservationDate(), Types.DATE);
         vParams.addValue("position", reservation.getPosition(), Types.INTEGER);
+        vParams.addValue("sendmaildate", new Date(), Types.DATE);
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
         vJdbcTemplate.update(vSQL, vParams);
@@ -53,7 +56,7 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
     public void updateReservation(Reservation reservation) {
 
         String vSQL = "UPDATE public.reservation " +
-                "SET isbn=:isbn, email=:email, reservationdate=:reservationdate, position=:position " +
+                "SET isbn=:isbn, email=:email, reservationdate=:reservationdate, position=:position, sendmaildate=:sendmaildate " +
                 "WHERE id=:id";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
@@ -63,6 +66,7 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
         vParams.addValue("email", reservation.getEmail(), Types.VARCHAR);
         vParams.addValue("reservationdate", reservation.getReservationDate(), Types.DATE);
         vParams.addValue("position", reservation.getPosition(), Types.INTEGER);
+        vParams.addValue("sendmaildate", reservation.getSendMailDate(), Types.DATE);
 
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
@@ -96,6 +100,24 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
         } catch (EmptyResultDataAccessException vEx) {
             return null;
         }
+    }
+
+    @Override
+    public List<Reservation> getAllReservations() {
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+
+        String sql = "SELECT * FROM reservation";
+
+        return vJdbcTemplate.query(sql,reservationRM);
+    }
+
+    @Override
+    public List<Reservation> getReservationJobTicket1() {
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+
+        String sql = "select * from reservation LEFT JOIN book b on reservation.isbn = b.isbn where b.copierestant>0 and reservation.position=1";
+
+        return vJdbcTemplate.query(sql,reservationRM);
     }
 
 

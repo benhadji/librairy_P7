@@ -25,6 +25,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="position" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="reservationDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="sendMailDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="user" type="{http://services.service.WebService.org/}userAccount" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -42,6 +43,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "id",
     "position",
     "reservationDate",
+    "sendMailDate",
     "user"
 })
 public class Reservation {
@@ -54,6 +56,8 @@ public class Reservation {
     protected Integer position;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar reservationDate;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar sendMailDate;
     protected UserAccount user;
 
     /**
@@ -198,6 +202,30 @@ public class Reservation {
      */
     public void setReservationDate(XMLGregorianCalendar value) {
         this.reservationDate = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété sendMailDate.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getSendMailDate() {
+        return sendMailDate;
+    }
+
+    /**
+     * Définit la valeur de la propriété sendMailDate.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setSendMailDate(XMLGregorianCalendar value) {
+        this.sendMailDate = value;
     }
 
     /**

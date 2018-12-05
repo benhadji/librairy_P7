@@ -60,4 +60,14 @@ public class ReservationDaoImpl implements ReservationDao {
     public Reservation getById(int id) {
         return resaSrv.getResaById(id);
     }
+
+    @Override
+    public List<Reservation> getAllReservations() {
+        return resaSrv.getAllReservations();
+    }
+
+    @Override
+    public List<Reservation> getResaJobTicket1() {
+        return resaSrv.getResaJobTicket1();
+    }
 }

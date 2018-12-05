@@ -161,16 +161,19 @@ public class SearchAction extends AbstractResource implements SessionAware {
                         book.setAuthor(author);
                         book.setEditor(editor);
 
-                        resaLimits = book.getNbOfCopy()*2;
-                        closestReturn = getManagerFactory().getBorrowManager().getClosestBorrow(book.getISBN());
-                        closestEndDate = closestReturn.getEndDate().toGregorianCalendar().getTime();
 
-                        for (Borrow borrow : borrowList){  // Pour vois si le user a emprunter le livre qu'il veut reserver
-                            System.out.println("L'ID du livre est : "+ borrow.getISBN());
+                        resaLimits = book.getNbOfCopy()*2;
+
+                        if(borrowList.contains(book.getISBN())){
+                            closestReturn = getManagerFactory().getBorrowManager().getClosestBorrow(book.getISBN());
+                            closestEndDate = closestReturn.getEndDate().toGregorianCalendar().getTime();
+                        }
+
+
+                        for (Borrow borrow : borrowList){  // Pour voir si le user a emprunter le livre qu'il veut reserver
                             flag = false;
                             if (book.getISBN().equals(borrow.getISBN())){
                                 flag = true;
-                                System.out.println("Flag is true !!");
                             }
                         }
 

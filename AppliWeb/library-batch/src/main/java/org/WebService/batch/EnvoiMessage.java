@@ -18,7 +18,7 @@ public class EnvoiMessage {
     }
 
     /**
-     * This method will send compose and send the message
+     * This method will compose and send the message
      * */
     public void sendMail(String to, String subject, String body)
     {

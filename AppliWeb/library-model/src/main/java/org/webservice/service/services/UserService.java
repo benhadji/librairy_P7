@@ -38,18 +38,15 @@ public interface UserService {
 
     /**
      * 
-     * @param arg1
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "validateLogin", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ValidateLogin")
-    @ResponseWrapper(localName = "validateLoginResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ValidateLoginResponse")
-    @Action(input = "http://services.service.WebService.org/UserService/validateLoginRequest", output = "http://services.service.WebService.org/UserService/validateLoginResponse")
-    public void validateLogin(
+    @RequestWrapper(localName = "createUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUser")
+    @ResponseWrapper(localName = "createUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUserResponse")
+    @Action(input = "http://services.service.WebService.org/UserService/createUserRequest", output = "http://services.service.WebService.org/UserService/createUserResponse")
+    public void createUser(
         @WebParam(name = "arg0", targetNamespace = "")
-        UserAccount arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
+        UserAccount arg0);
 
     /**
      * 
@@ -68,14 +65,17 @@ public interface UserService {
 
     /**
      * 
+     * @param arg1
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "createUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUser")
-    @ResponseWrapper(localName = "createUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUserResponse")
-    @Action(input = "http://services.service.WebService.org/UserService/createUserRequest", output = "http://services.service.WebService.org/UserService/createUserResponse")
-    public void createUser(
+    @RequestWrapper(localName = "validateLogin", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ValidateLogin")
+    @ResponseWrapper(localName = "validateLoginResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ValidateLoginResponse")
+    @Action(input = "http://services.service.WebService.org/UserService/validateLoginRequest", output = "http://services.service.WebService.org/UserService/validateLoginResponse")
+    public void validateLogin(
         @WebParam(name = "arg0", targetNamespace = "")
-        UserAccount arg0);
+        UserAccount arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
 }

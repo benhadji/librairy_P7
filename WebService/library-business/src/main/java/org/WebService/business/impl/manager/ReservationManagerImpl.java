@@ -63,5 +63,15 @@ public class ReservationManagerImpl extends AbstractManagerImpl implements Reser
         return getDaoFactory().getReservationDAO().getResaById(id);
     }
 
+    @Override
+    public List<Reservation> getAllReservation() {
+        return getDaoFactory().getReservationDAO().getAllReservations();
+    }
+
+    @Override
+    public List<Reservation> getResaJobTicket1() {
+        return getDaoFactory().getReservationDAO().getReservationJobTicket1();
+    }
+
 
 }

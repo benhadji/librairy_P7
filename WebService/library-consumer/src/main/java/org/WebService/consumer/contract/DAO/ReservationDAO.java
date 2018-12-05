@@ -14,5 +14,7 @@ public interface ReservationDAO {
     void updateReservation(Reservation reservation);
     void deleteReservation(Reservation reservation);
     Reservation getResaById(Integer id);
+    List<Reservation> getAllReservations();
+    List<Reservation> getReservationJobTicket1();
 
 }

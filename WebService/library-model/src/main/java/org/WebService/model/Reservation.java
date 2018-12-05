@@ -9,9 +9,17 @@ public class Reservation {
     private Integer ISBN;
     private Integer position;
     private Date reservationDate;
+    private Date sendMailDate;
     private UserAccount user;
     private Book book;
 
+    public Date getSendMailDate() {
+        return sendMailDate;
+    }
+
+    public void setSendMailDate(Date sendMailDate) {
+        this.sendMailDate = sendMailDate;
+    }
 
     public Integer getId() {
         return id;

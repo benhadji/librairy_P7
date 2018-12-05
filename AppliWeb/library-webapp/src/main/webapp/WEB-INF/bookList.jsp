@@ -124,7 +124,7 @@
                 <td><s:property value="editor.name"/></td>
                 <td><s:property value="year"/></td>
 
-                <s:if test="%{nbOfCopy>0}">
+                <s:if test="%{nbOfCopy>3}">
                     <td>Disponible</td>
                 </s:if>
                 <s:else>

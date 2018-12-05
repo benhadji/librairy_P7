@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template
+
+# IntelliJ project files
+.idea/
+library-consumer/library-consumer.iml
+
+# Target folder #
+library-batch/target
+library-business/target
+library-consumer/target
+library-model/target
+library-service/target
+

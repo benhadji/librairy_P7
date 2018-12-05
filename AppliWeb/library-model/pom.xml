@@ -52,12 +52,12 @@
                 <configuration>
                     <sourceDestDir>${project.basedir}/src/main/java</sourceDestDir>
                     <wsdlUrls>
-                        <wsdlUrl>http://lfr023221:8080/library-service4353566519530229903/Author?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service4353566519530229903/Book?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service4353566519530229903/Borrow?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service4353566519530229903/Editor?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service4353566519530229903/Reservation?wsdl</wsdlUrl>
-                        <wsdlUrl>http://lfr023221:8080/library-service4353566519530229903/User?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service4449323544803110163/Author?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service4449323544803110163/Borrow?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service4449323544803110163/Book?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service4449323544803110163/Editor?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service4449323544803110163/Reservation?wsdl</wsdlUrl>
+                        <wsdlUrl>http://lfr023221:8080/library-service4449323544803110163/User?wsdl</wsdlUrl>
                     </wsdlUrls>
                 </configuration>
             </plugin>

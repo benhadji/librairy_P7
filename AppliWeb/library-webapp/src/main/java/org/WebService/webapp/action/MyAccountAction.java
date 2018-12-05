@@ -18,6 +18,15 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
     private List<Borrow> borrows = new ArrayList<>();
     private String email;
     private Map<String, Object> session;
+    private Date currentDate = new Date();
+
+    public Date getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(Date currentDate) {
+        this.currentDate = currentDate;
+    }
 
     public String getEmail() {
         return email;

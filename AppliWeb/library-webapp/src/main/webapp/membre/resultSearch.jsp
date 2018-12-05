@@ -115,12 +115,14 @@
                     <td><s:property value="author.firstName"/> <s:property value="author.lastName"/></td>
                     <td><s:property value="editor.name"/></td>
                     <td><s:property value="year"/></td>
-                    <s:if test="%{copieRestant>0}">
+                    <s:if test="%{copieRestant>3}">
                         <td>Disponible</td>
+                        <td>Merci de venir l'emprunter sur place</td>
                     </s:if>
                     <s:else>
                         <s:if test="%{reservationListByBook.size()<resaLimits}">
                             <s:if test="%{isFlag()}">
+                                <td>Non disponible.</td>
                                 <td>Reservation impossible. Vous avez deja emprunté ce livre.</td>
                             </s:if>
                             <s:else>

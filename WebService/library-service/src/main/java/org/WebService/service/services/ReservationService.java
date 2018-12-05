@@ -43,4 +43,14 @@ public class ReservationService extends AbstractService {
         return getManagerFactory().getReservationManager().getResaById(id);
     }
 
+    @WebMethod
+    public List<Reservation> getAllReservations(){
+        return getManagerFactory().getReservationManager().getAllReservation();
+    }
+
+    @WebMethod
+    public List<Reservation> getResaJobTicket1(){
+        return getManagerFactory().getReservationManager().getResaJobTicket1();
+    }
+
 }

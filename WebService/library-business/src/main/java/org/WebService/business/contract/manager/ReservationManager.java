@@ -14,6 +14,8 @@ public interface ReservationManager {
     void updateReservation(Reservation reservation);
     void deleteReservation(Reservation reservation);
     Reservation getResaById(Integer id);
+    List<Reservation> getAllReservation();
+    List<Reservation> getResaJobTicket1();
 
 
 }
