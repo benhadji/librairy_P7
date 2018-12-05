@@ -26,8 +26,9 @@ public class ReservationTasklet extends AbstractManager implements Tasklet {
 
     @Autowired
     private EnvoiMessage mail;
-
+    private GregorianCalendar calendar = new GregorianCalendar();
     private LocalDate currentDate = LocalDate.now();
+    private LocalDate sendMailDate;
 
 
     @Override
@@ -45,32 +46,36 @@ public class ReservationTasklet extends AbstractManager implements Tasklet {
                     "est a present disponible. Merci de venir le chercher sous 48h, sinon, votre reservation sera annulé. Fais vite !" +
                     "A bientot !!";
 
-            mail.sendMail(to, subject, body);
-            reservation.setSendMailDate(getXMLGregorianCalendarNow());
 
-            LocalDate sendMailDate = reservation.getSendMailDate().toGregorianCalendar().toZonedDateTime().toLocalDate();
+            if(reservation.getSendMailDate() == null){
+                reservation.setSendMailDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar));
+                getManagerFactory().getReservationManager().updateReservation(reservation);
+                mail.sendMail(to, subject, body);
+            }
+            else{
+                sendMailDate = reservation.getSendMailDate().toGregorianCalendar().toZonedDateTime().toLocalDate();
+                if(DAYS.between(sendMailDate, currentDate) == 2){
+                    getManagerFactory().getReservationManager().deleteReservation(reservation);
 
-            if(MINUTES.between(sendMailDate, currentDate) == 2){
-                getManagerFactory().getReservationManager().deleteReservation(reservation);
+                    List<Reservation> listResaByBook = getManagerFactory().getReservationManager().listResaByBook(reservation.getBook());
 
-                List<Reservation> listResaByBook = getManagerFactory().getReservationManager().listResaByBook(reservation.getBook());
+                    for (Reservation resaByBook : listResaByBook){
+                        resaByBook.setPosition(resaByBook.getPosition()-1);
+                    }
 
-                for (Reservation resaByBook : listResaByBook){
-                    resaByBook.setPosition(resaByBook.getPosition()-1);
+                    Reservation nextResa = listResaByBook.get(0);
+                    nextResa.setSendMailDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar));
+                    getManagerFactory().getReservationManager().updateReservation(nextResa);
+                    mail.sendMail(to, subject, body);
+
                 }
             }
+
+
+
         }
 
         return RepeatStatus.FINISHED;
     }
 
-    private XMLGregorianCalendar getXMLGregorianCalendarNow()
-            throws DatatypeConfigurationException
-    {
-        GregorianCalendar gregorianCalendar = new GregorianCalendar();
-        DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
-        XMLGregorianCalendar now =
-                datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
-        return now;
-    }
 }
