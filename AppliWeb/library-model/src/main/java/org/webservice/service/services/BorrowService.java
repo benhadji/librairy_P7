@@ -54,6 +54,48 @@ public interface BorrowService {
 
     /**
      * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "updateBorrow", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateBorrow")
+    @ResponseWrapper(localName = "updateBorrowResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateBorrowResponse")
+    @Action(input = "http://services.service.WebService.org/BorrowService/updateBorrowRequest", output = "http://services.service.WebService.org/BorrowService/updateBorrowResponse")
+    public void updateBorrow(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Borrow arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns org.webservice.service.services.Borrow
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getBorrowById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowById")
+    @ResponseWrapper(localName = "getBorrowByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowByIdResponse")
+    @Action(input = "http://services.service.WebService.org/BorrowService/getBorrowByIdRequest", output = "http://services.service.WebService.org/BorrowService/getBorrowByIdResponse")
+    public Borrow getBorrowById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns org.webservice.service.services.Borrow
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getClosestBorrow", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetClosestBorrow")
+    @ResponseWrapper(localName = "getClosestBorrowResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetClosestBorrowResponse")
+    @Action(input = "http://services.service.WebService.org/BorrowService/getClosestBorrowRequest", output = "http://services.service.WebService.org/BorrowService/getClosestBorrowResponse")
+    public Borrow getClosestBorrow(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Integer arg0);
+
+    /**
+     * 
      * @return
      *     returns java.util.List<org.webservice.service.services.Borrow>
      */
@@ -67,24 +109,39 @@ public interface BorrowService {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns java.util.List<org.webservice.service.services.Borrow>
      */
     @WebMethod
-    @RequestWrapper(localName = "saveNewBorrow", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.SaveNewBorrow")
-    @ResponseWrapper(localName = "saveNewBorrowResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.SaveNewBorrowResponse")
-    @Action(input = "http://services.service.WebService.org/BorrowService/saveNewBorrowRequest", output = "http://services.service.WebService.org/BorrowService/saveNewBorrowResponse")
-    public void saveNewBorrow(
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getBorrowByBook", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowByBook")
+    @ResponseWrapper(localName = "getBorrowByBookResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowByBookResponse")
+    @Action(input = "http://services.service.WebService.org/BorrowService/getBorrowByBookRequest", output = "http://services.service.WebService.org/BorrowService/getBorrowByBookResponse")
+    public List<Borrow> getBorrowByBook(
         @WebParam(name = "arg0", targetNamespace = "")
-        Borrow arg0);
+        String arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<org.webservice.service.services.Borrow>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sendMailReminder", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.SendMailReminder")
+    @ResponseWrapper(localName = "sendMailReminderResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.SendMailReminderResponse")
+    @Action(input = "http://services.service.WebService.org/BorrowService/sendMailReminderRequest", output = "http://services.service.WebService.org/BorrowService/sendMailReminderResponse")
+    public List<Borrow> sendMailReminder();
 
     /**
      * 
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "updateBorrow", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateBorrow")
-    @ResponseWrapper(localName = "updateBorrowResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateBorrowResponse")
-    @Action(input = "http://services.service.WebService.org/BorrowService/updateBorrowRequest", output = "http://services.service.WebService.org/BorrowService/updateBorrowResponse")
-    public void updateBorrow(
+    @RequestWrapper(localName = "saveNewBorrow", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.SaveNewBorrow")
+    @ResponseWrapper(localName = "saveNewBorrowResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.SaveNewBorrowResponse")
+    @Action(input = "http://services.service.WebService.org/BorrowService/saveNewBorrowRequest", output = "http://services.service.WebService.org/BorrowService/saveNewBorrowResponse")
+    public void saveNewBorrow(
         @WebParam(name = "arg0", targetNamespace = "")
         Borrow arg0);
 
@@ -111,50 +168,5 @@ public interface BorrowService {
     @ResponseWrapper(localName = "getLateReturnsResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetLateReturnsResponse")
     @Action(input = "http://services.service.WebService.org/BorrowService/getLateReturnsRequest", output = "http://services.service.WebService.org/BorrowService/getLateReturnsResponse")
     public List<Borrow> getLateReturns();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<org.webservice.service.services.Borrow>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getBorrowByBook", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowByBook")
-    @ResponseWrapper(localName = "getBorrowByBookResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowByBookResponse")
-    @Action(input = "http://services.service.WebService.org/BorrowService/getBorrowByBookRequest", output = "http://services.service.WebService.org/BorrowService/getBorrowByBookResponse")
-    public List<Borrow> getBorrowByBook(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns org.webservice.service.services.Borrow
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getClosestBorrow", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetClosestBorrow")
-    @ResponseWrapper(localName = "getClosestBorrowResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetClosestBorrowResponse")
-    @Action(input = "http://services.service.WebService.org/BorrowService/getClosestBorrowRequest", output = "http://services.service.WebService.org/BorrowService/getClosestBorrowResponse")
-    public Borrow getClosestBorrow(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns org.webservice.service.services.Borrow
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getBorrowById", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowById")
-    @ResponseWrapper(localName = "getBorrowByIdResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetBorrowByIdResponse")
-    @Action(input = "http://services.service.WebService.org/BorrowService/getBorrowByIdRequest", output = "http://services.service.WebService.org/BorrowService/getBorrowByIdResponse")
-    public Borrow getBorrowById(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Integer arg0);
 
 }

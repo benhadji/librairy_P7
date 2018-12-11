@@ -19,4 +19,6 @@ public interface BorrowManager {
     void markAsExtended(Borrow borrow);
     Borrow getById(int parseInt);
     Borrow getClosestBorrow(Integer isbn);
+
+    List<Borrow> sendMailReminder();
 }

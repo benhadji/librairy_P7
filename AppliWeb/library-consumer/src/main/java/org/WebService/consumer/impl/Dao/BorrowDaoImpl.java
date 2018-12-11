@@ -83,4 +83,9 @@ public class BorrowDaoImpl implements BorrowDao {
     public Borrow getClosestBorrow(Integer isbn) {
         return borrowSrv.getClosestBorrow(isbn);
     }
+
+    @Override
+    public List<Borrow> sendMailReminder() {
+        return borrowSrv.sendMailReminder();
+    }
 }

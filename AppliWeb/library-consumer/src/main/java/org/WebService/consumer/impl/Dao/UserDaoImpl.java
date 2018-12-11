@@ -40,8 +40,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void create(UserAccount user) {
-
         userSrv.createUser(user);
+    }
 
+    @Override
+    public void updateUser(UserAccount user) {
+        userSrv.updateUser(user);
     }
 }

@@ -18,4 +18,6 @@ public interface BorrowDao {
     List<Borrow> getBorrowByBook(String title);
     Borrow getByID(int parseInt);
     Borrow getClosestBorrow(Integer isbn);
+
+    List<Borrow> sendMailReminder();
 }

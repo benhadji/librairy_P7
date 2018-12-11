@@ -32,10 +32,10 @@ public interface ReservationService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getResaJobTicket1", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetResaJobTicket1")
-    @ResponseWrapper(localName = "getResaJobTicket1Response", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetResaJobTicket1Response")
-    @Action(input = "http://services.service.WebService.org/ReservationService/getResaJobTicket1Request", output = "http://services.service.WebService.org/ReservationService/getResaJobTicket1Response")
-    public List<Reservation> getResaJobTicket1();
+    @RequestWrapper(localName = "getAllReservations", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllReservations")
+    @ResponseWrapper(localName = "getAllReservationsResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllReservationsResponse")
+    @Action(input = "http://services.service.WebService.org/ReservationService/getAllReservationsRequest", output = "http://services.service.WebService.org/ReservationService/getAllReservationsResponse")
+    public List<Reservation> getAllReservations();
 
     /**
      * 
@@ -44,10 +44,22 @@ public interface ReservationService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllReservations", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllReservations")
-    @ResponseWrapper(localName = "getAllReservationsResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllReservationsResponse")
-    @Action(input = "http://services.service.WebService.org/ReservationService/getAllReservationsRequest", output = "http://services.service.WebService.org/ReservationService/getAllReservationsResponse")
-    public List<Reservation> getAllReservations();
+    @RequestWrapper(localName = "getResaJobTicket1", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetResaJobTicket1")
+    @ResponseWrapper(localName = "getResaJobTicket1Response", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetResaJobTicket1Response")
+    @Action(input = "http://services.service.WebService.org/ReservationService/getResaJobTicket1Request", output = "http://services.service.WebService.org/ReservationService/getResaJobTicket1Response")
+    public List<Reservation> getResaJobTicket1();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "updateReservation", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateReservation")
+    @ResponseWrapper(localName = "updateReservationResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateReservationResponse")
+    @Action(input = "http://services.service.WebService.org/ReservationService/updateReservationRequest", output = "http://services.service.WebService.org/ReservationService/updateReservationResponse")
+    public void updateReservation(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Reservation arg0);
 
     /**
      * 
@@ -64,29 +76,17 @@ public interface ReservationService {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns java.util.List<org.webservice.service.services.Reservation>
      */
     @WebMethod
-    @RequestWrapper(localName = "updateReservation", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateReservation")
-    @ResponseWrapper(localName = "updateReservationResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.UpdateReservationResponse")
-    @Action(input = "http://services.service.WebService.org/ReservationService/updateReservationRequest", output = "http://services.service.WebService.org/ReservationService/updateReservationResponse")
-    public void updateReservation(
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listResaByUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListResaByUser")
+    @ResponseWrapper(localName = "listResaByUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListResaByUserResponse")
+    @Action(input = "http://services.service.WebService.org/ReservationService/listResaByUserRequest", output = "http://services.service.WebService.org/ReservationService/listResaByUserResponse")
+    public List<Reservation> listResaByUser(
         @WebParam(name = "arg0", targetNamespace = "")
-        Reservation arg0);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addReservation", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservation")
-    @ResponseWrapper(localName = "addReservationResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservationResponse")
-    @Action(input = "http://services.service.WebService.org/ReservationService/addReservationRequest", output = "http://services.service.WebService.org/ReservationService/addReservationResponse")
-    public void addReservation(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Book arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        UserAccount arg1);
+        UserAccount arg0);
 
     /**
      * 
@@ -105,18 +105,18 @@ public interface ReservationService {
 
     /**
      * 
+     * @param arg1
      * @param arg0
-     * @return
-     *     returns java.util.List<org.webservice.service.services.Reservation>
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listResaByUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListResaByUser")
-    @ResponseWrapper(localName = "listResaByUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListResaByUserResponse")
-    @Action(input = "http://services.service.WebService.org/ReservationService/listResaByUserRequest", output = "http://services.service.WebService.org/ReservationService/listResaByUserResponse")
-    public List<Reservation> listResaByUser(
+    @RequestWrapper(localName = "addReservation", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservation")
+    @ResponseWrapper(localName = "addReservationResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.AddReservationResponse")
+    @Action(input = "http://services.service.WebService.org/ReservationService/addReservationRequest", output = "http://services.service.WebService.org/ReservationService/addReservationResponse")
+    public void addReservation(
         @WebParam(name = "arg0", targetNamespace = "")
-        UserAccount arg0);
+        Book arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        UserAccount arg1);
 
     /**
      * 

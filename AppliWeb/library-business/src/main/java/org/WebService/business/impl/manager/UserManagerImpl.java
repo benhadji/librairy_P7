@@ -13,7 +13,7 @@ public class UserManagerImpl extends AbstractManager implements UserManager {
 
     @Override
     public UserAccount getUserByEmail(String email) {
-        return null;
+        return getDaoFactory().getUserDAO().getUserByEmail(email);
     }
 
     @Override
@@ -67,4 +67,11 @@ public class UserManagerImpl extends AbstractManager implements UserManager {
 
 
     }
+
+    @Override
+    public void updateUser(UserAccount user) {
+        getDaoFactory().getUserDAO().updateUser(user);
+    }
+
+
 }

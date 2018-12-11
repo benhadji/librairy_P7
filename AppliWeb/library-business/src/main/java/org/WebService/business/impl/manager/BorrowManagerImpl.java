@@ -61,5 +61,10 @@ public class BorrowManagerImpl extends AbstractManager implements BorrowManager 
         return getDaoFactory().getBorrowDAO().getClosestBorrow(isbn);
     }
 
+    @Override
+    public List<Borrow> sendMailReminder() {
+        return getDaoFactory().getBorrowDAO().sendMailReminder();
+    }
+
 
 }

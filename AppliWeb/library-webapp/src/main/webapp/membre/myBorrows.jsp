@@ -13,11 +13,13 @@
     <title>Public-Library - Biblioteque municipale de la ville | Acceuil </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <link rel="stylesheet" href="/membre/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='//fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!--slider-->
     <link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/titatoggle-dist.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
     <script type="text/javascript">
@@ -25,16 +27,8 @@
             $('#slider').nivoSlider();
         });
     </script>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-          crossorigin="anonymous">
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <style type="text/css">
+
         @media(min-width: 768px) {
             .field-label-responsive {
                 padding-top: .5rem;
@@ -51,8 +45,39 @@
             list-style: none;
         }
 
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
 
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
     </style>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -83,7 +108,7 @@
                     <s:form action="search" namespace="/membre">
 
                         <div class="input-group">
-                            <input type="text" name="jspName" class="form-control" placeholder="Search for..."/>
+                            <input type="text" name="jspName" class="form-control" placeholder="Je cherche ..."/>
                             <span class="input-group-btn">
                                     <button class="btn btn-secondary" type="submit">Allez!</button>
                                 </span>
@@ -99,38 +124,49 @@
 </div>
 
 <div class="container">
-    <table class="table">
-        <thead class="thead-inverse">
-        <tr>
-            <th style="width:20%;">Livres emprunté</th>
-            <th style="width:20%;">Date emprunt</th>
-            <th style="width:20%;">A rendre</th>
-            <th style="width:20%;">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <s:iterator value="borrows">
+    <div class="row">
+        <table class="table">
+            <thead class="thead-inverse">
             <tr>
-                <td><s:property value="book.title"/></td>
-                <td><s:property value="startDate.toGregorianCalendar().getTime()"/></td>
-                <td><s:property value="endDate.toGregorianCalendar().getTime()"/></td>
-
-                <s:if test="%{!isExtended() && endDate.toGregorianCalendar().time.before(currentDate)}">
-                    <s:url var="url" action="extendBorrow">
-                        <s:param name="id"><s:property value="id"/></s:param>
-                    </s:url>
-                    <td><a href="${url}">Prolonger</a></td>
-                </s:if>
-                <s:elseif test="%{endDate.toGregorianCalendar().time.after(currentDate)}">
-                    <td>Livre à rendre</td>
-                </s:elseif>
-                <s:elseif test="%{isExtended()}">
-                    <td>Deja prolongé.</td>
-                </s:elseif>
+                <th style="width:20%;">Livres emprunté</th>
+                <th style="width:20%;">Date emprunt</th>
+                <th style="width:20%;">A rendre</th>
+                <th style="width:20%;">Action</th>
             </tr>
-        </s:iterator>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <s:iterator value="borrows">
+                <tr>
+                    <td><s:property value="book.title"/></td>
+                    <td><s:property value="startDate.toGregorianCalendar().getTime()"/></td>
+                    <td><s:property value="endDate.toGregorianCalendar().getTime()"/></td>
+
+                    <s:if test="%{!isExtended() && endDate.toGregorianCalendar().time.before(currentDate)}">
+                        <s:url var="url" action="extendBorrow">
+                            <s:param name="id"><s:property value="id"/></s:param>
+                        </s:url>
+                        <td><a href="${url}">Prolonger</a></td>
+                    </s:if>
+                    <s:elseif test="%{endDate.toGregorianCalendar().time.after(currentDate)}">
+                        <td>Livre à rendre</td>
+                    </s:elseif>
+                    <s:elseif test="%{isExtended()}">
+                        <td>Deja prolongé.</td>
+                    </s:elseif>
+                </tr>
+            </s:iterator>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="row">
+        <s:form action="myBorrows" namespace="/membre">
+                <s:checkbox name="reminder" label="isReminder" fieldValue="true"/>
+                <s:submit value="Activer rappel"/>
+        </s:form>
+    </div>
+
 
     <s:if test="hasActionMessages()">
         <div class="welcome">

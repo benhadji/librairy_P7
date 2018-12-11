@@ -39,18 +39,6 @@ public interface UserService {
     /**
      * 
      * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "createUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUser")
-    @ResponseWrapper(localName = "createUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUserResponse")
-    @Action(input = "http://services.service.WebService.org/UserService/createUserRequest", output = "http://services.service.WebService.org/UserService/createUserResponse")
-    public void createUser(
-        @WebParam(name = "arg0", targetNamespace = "")
-        UserAccount arg0);
-
-    /**
-     * 
-     * @param arg0
      * @return
      *     returns org.webservice.service.services.UserAccount
      */
@@ -62,6 +50,18 @@ public interface UserService {
     public UserAccount findUserByEmail(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "createUser", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUser")
+    @ResponseWrapper(localName = "createUserResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateUserResponse")
+    @Action(input = "http://services.service.WebService.org/UserService/createUserRequest", output = "http://services.service.WebService.org/UserService/createUserResponse")
+    public void createUser(
+        @WebParam(name = "arg0", targetNamespace = "")
+        UserAccount arg0);
 
     /**
      * 

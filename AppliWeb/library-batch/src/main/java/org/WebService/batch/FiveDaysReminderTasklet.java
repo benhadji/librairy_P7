@@ -17,11 +17,9 @@ public class FiveDaysReminderTasklet extends AbstractManager implements Tasklet 
     @Autowired
     private EnvoiMessage mail;
 
-    private Boolean rappel;
-
 
     @Override
-    public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+    public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext){
 
 
         List<Borrow> reminders = getManagerFactory().getBorrowManager().sendMailReminder();
@@ -42,11 +40,7 @@ public class FiveDaysReminderTasklet extends AbstractManager implements Tasklet 
                     borrow.getEndDate().toGregorianCalendar().getTime() + ".\nLe pret arrivant bientot a terme, merci de vous rapprocher de votre biblioteque preferé pour nous retourner le livre. Merci pour votre comprehension." +
                     "\n\nA bientot !!";
 
-
             mail.sendMail(to, subject, body);
-
-
-
 
         }
 

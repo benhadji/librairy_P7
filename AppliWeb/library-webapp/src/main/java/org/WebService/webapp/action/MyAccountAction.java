@@ -19,6 +19,15 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
     private String email;
     private Map<String, Object> session;
     private Date currentDate = new Date();
+    private boolean reminder;
+
+    public boolean isReminder() {
+        return reminder;
+    }
+
+    public void setReminder(boolean reminder) {
+        this.reminder = reminder;
+    }
 
     public Date getCurrentDate() {
         return currentDate;
@@ -67,6 +76,19 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
                 borrow.setBook(book);
             }
 
+            if (reminder){
+                user.setReminder(true);
+                getManagerFactory().getUserAccountManager().updateUser(user);
+                addActionMessage("Vous avez activé l'option vous envoyant un mail \n " +
+                        "5 jours avant la fin de vos prets");
+            }
+            else{
+                user.setReminder(false);
+                getManagerFactory().getUserAccountManager().updateUser(user);
+                addActionMessage("Vous avez desactivé l'option vous envoyant un mail. \n " +
+                        "Vous ne recevrez plus la notification de rappel, 5 jours avant la fin de vos prets");
+            }
+
             return "success";
 
         }
@@ -75,6 +97,5 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
 
 
     }
-
 
 }
