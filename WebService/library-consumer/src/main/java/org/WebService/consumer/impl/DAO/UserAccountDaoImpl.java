@@ -26,19 +26,19 @@ public class UserAccountDaoImpl extends AbstractDaoImpl implements UserAccountDA
     @Override
     public void create(UserAccount user) {
 
-        String vSQL = "INSERT INTO public.useraccount (email, password, firstname, lastname, birthdate, address, city, postcode, phonenumber) " +
-                "VALUES(:email, :password, :firstName, :lastName, :birthDate, :address, :city, :postCode, :phoneNumber)";
+        String vSQL = "INSERT INTO public.useraccount (email, password, firstname, lastname, address, city, postcode, phonenumber, reminder) " +
+                "VALUES(:email, :password, :firstName, :lastName, :address, :city, :postCode, :phoneNumber, :reminder)";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
         vParams.addValue("email", user.getEmail(), Types.VARCHAR);
         vParams.addValue("password", user.getPassword(), Types.VARCHAR);
         vParams.addValue("firstName", user.getFirstName(), Types.VARCHAR);
         vParams.addValue("lastName", user.getLastName(), Types.VARCHAR);
-        vParams.addValue("birthDate", user.getBirthDate(), Types.DATE);
         vParams.addValue("address", user.getAddress(), Types.VARCHAR);
         vParams.addValue("city", user.getCity(), Types.VARCHAR);
         vParams.addValue("postCode", user.getPostCode(), Types.INTEGER);
         vParams.addValue("phoneNumber", user.getPhoneNumber(), Types.VARCHAR);
+        vParams.addValue("reminder", user.isReminder(), Types.BOOLEAN);
 
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
@@ -51,8 +51,10 @@ public class UserAccountDaoImpl extends AbstractDaoImpl implements UserAccountDA
     public void update(UserAccount user) {
 
         String vSQL = "UPDATE public.useraccount " +
-                "SET email=:email, password=:password, firstname=:firstName, lastname=:lastName, birthdate=:birthDate, address=:address, city=:city, postcode=:postCode, phonenumber=:phoneNumber " +
-                "WHERE id=:id";
+                "SET email=:email, password=:password, firstname=:firstName, lastname=:lastName, " +
+                "address=:address, city=:city, postcode=:postCode, " +
+                "phonenumber=:phoneNumber, reminder=:reminder " +
+                "WHERE email=:email";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
 
@@ -60,11 +62,11 @@ public class UserAccountDaoImpl extends AbstractDaoImpl implements UserAccountDA
         vParams.addValue("password", user.getPassword(), Types.VARCHAR);
         vParams.addValue("firstName", user.getFirstName(), Types.VARCHAR);
         vParams.addValue("lastName", user.getLastName(), Types.VARCHAR);
-        vParams.addValue("bithDate", user.getBirthDate(), Types.DATE);
         vParams.addValue("address", user.getAddress(), Types.VARCHAR);
         vParams.addValue("city", user.getCity(), Types.VARCHAR);
         vParams.addValue("postCode", user.getPostCode(), Types.INTEGER);
         vParams.addValue("phoneNumber", user.getPhoneNumber(), Types.VARCHAR);
+        vParams.addValue("reminder", user.isReminder(), Types.BOOLEAN);
 
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());

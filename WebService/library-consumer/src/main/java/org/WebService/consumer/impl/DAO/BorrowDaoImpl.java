@@ -131,6 +131,16 @@ public class BorrowDaoImpl extends AbstractDaoImpl implements BorrowDAO {
     }
 
     @Override
+    public List<Borrow> sendMailReminder() {
+        JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
+
+        String sql = "select * from borrow JOIN useraccount on borrow.email = useraccount.email " +
+                "where useraccount.reminder = true and (select date_part('day',age(borrow.enddate,now()))) = 4";
+
+        return vJdbcTemplate.query(sql,borrowRM);
+    }
+
+    @Override
     public List<Borrow> getBorrowByBook(String title) {
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
 

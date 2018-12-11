@@ -16,4 +16,5 @@ public interface BorrowManager {
     List<Borrow> getBorrowByBook(String title);
     Borrow getByID(int id);
     Borrow getClosestBorrow(Integer isbn);
+    List<Borrow> sendMailReminder();
 }

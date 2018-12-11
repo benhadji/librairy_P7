@@ -59,11 +59,14 @@ public class BorrowService extends AbstractService {
     }
 
     @WebMethod
-    public Borrow getClosestBorrow(Integer isbn)
-    {
+    public Borrow getClosestBorrow(Integer isbn){
         return getManagerFactory().getBorrowManager().getClosestBorrow(isbn);
     }
 
+    @WebMethod
+    public List<Borrow> sendMailReminder(){
+        return getManagerFactory().getBorrowManager().sendMailReminder();
+    }
 
 
 }

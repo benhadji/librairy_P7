@@ -115,7 +115,10 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
     public List<Reservation> getReservationJobTicket1() {
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(getDataSource());
 
-        String sql = "select * from reservation LEFT JOIN book b on reservation.isbn = b.isbn where b.copierestant>0 and reservation.position=1";
+        String sql = "select * from reservation " +
+                "LEFT JOIN book b on reservation.isbn = b.isbn " +
+                "where b.copierestant>0 " +
+                "and reservation.position=1";
 
         return vJdbcTemplate.query(sql,reservationRM);
     }

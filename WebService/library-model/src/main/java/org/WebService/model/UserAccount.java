@@ -8,11 +8,19 @@ public class UserAccount {
     private String password;
     private String firstName;
     private String lastName;
-    private Date birthDate;
     private String address;
     private String city;
     private Integer postCode;
     private String phoneNumber;
+    private boolean reminder;
+
+    public boolean isReminder() {
+        return reminder;
+    }
+
+    public void setReminder(boolean reminder) {
+        this.reminder = reminder;
+    }
 
     public String getEmail() {
         return email;
@@ -44,14 +52,6 @@ public class UserAccount {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public String getAddress() {
