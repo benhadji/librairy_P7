@@ -51,6 +51,7 @@
     <bean id="batchTasklet" class="org.WebService.batch.BatchTasklet"/>
     <bean id="reservationTasklet" class="org.WebService.batch.ReservationTasklet"/>
 
+
     <batch:job id="scheduledJob">
         <batch:step id="jobStep2">
             <batch:tasklet ref="reservationTasklet" />
