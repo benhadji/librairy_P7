@@ -57,6 +57,18 @@ public interface BookService {
 
     /**
      * 
+     * @return
+     *     returns java.util.List<org.webservice.service.services.Book>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAllBooks", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooks")
+    @ResponseWrapper(localName = "getAllBooksResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooksResponse")
+    @Action(input = "http://services.service.WebService.org/BookService/getAllBooksRequest", output = "http://services.service.WebService.org/BookService/getAllBooksResponse")
+    public List<Book> getAllBooks();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns java.util.List<org.webservice.service.services.Book>
@@ -69,17 +81,5 @@ public interface BookService {
     public List<Book> getBooksByAuthor(
         @WebParam(name = "arg0", targetNamespace = "")
         Author arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<org.webservice.service.services.Book>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllBooks", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooks")
-    @ResponseWrapper(localName = "getAllBooksResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAllBooksResponse")
-    @Action(input = "http://services.service.WebService.org/BookService/getAllBooksRequest", output = "http://services.service.WebService.org/BookService/getAllBooksResponse")
-    public List<Book> getAllBooks();
 
 }
