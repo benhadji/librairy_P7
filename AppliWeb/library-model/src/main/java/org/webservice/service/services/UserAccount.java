@@ -3,9 +3,7 @@ package org.webservice.service.services;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -19,7 +17,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="birthDate" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="firstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -27,6 +24,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="phoneNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="postCode" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="reminder" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,20 +36,18 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "userAccount", propOrder = {
     "address",
-    "birthDate",
     "city",
     "email",
     "firstName",
     "lastName",
     "password",
     "phoneNumber",
-    "postCode"
+    "postCode",
+    "reminder"
 })
 public class UserAccount {
 
     protected String address;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar birthDate;
     protected String city;
     protected String email;
     protected String firstName;
@@ -59,6 +55,7 @@ public class UserAccount {
     protected String password;
     protected String phoneNumber;
     protected Integer postCode;
+    protected boolean reminder;
 
     /**
      * Obtient la valeur de la propriété address.
@@ -82,30 +79,6 @@ public class UserAccount {
      */
     public void setAddress(String value) {
         this.address = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété birthDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getBirthDate() {
-        return birthDate;
-    }
-
-    /**
-     * Définit la valeur de la propriété birthDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setBirthDate(XMLGregorianCalendar value) {
-        this.birthDate = value;
     }
 
     /**
@@ -274,6 +247,22 @@ public class UserAccount {
      */
     public void setPostCode(Integer value) {
         this.postCode = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété reminder.
+     * 
+     */
+    public boolean isReminder() {
+        return reminder;
+    }
+
+    /**
+     * Définit la valeur de la propriété reminder.
+     * 
+     */
+    public void setReminder(boolean value) {
+        this.reminder = value;
     }
 
 }

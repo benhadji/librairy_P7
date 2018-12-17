@@ -11,12 +11,17 @@ public class EditorManagerImpl extends AbstractManager implements EditorManager 
 
     @Override
     public Editor getEditor(Editor editor) {
-        return null;
+        return getDaoFactory().getEditorDAO().getEditor(editor);
+    }
+
+    @Override
+    public Editor getByBookTitle(String title) {
+        return getDaoFactory().getEditorDAO().getByBookTitle(title);
     }
 
     @Override
     public List<Editor> listEditors() {
-        return null;
+        return getDaoFactory().getEditorDAO().listEditors();
     }
 
     @Override

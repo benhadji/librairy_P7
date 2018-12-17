@@ -29,6 +29,21 @@ public interface EditorService {
      * 
      * @param arg0
      * @return
+     *     returns org.webservice.service.services.Editor
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEditorByBookTitle", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByBookTitle")
+    @ResponseWrapper(localName = "getEditorByBookTitleResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByBookTitleResponse")
+    @Action(input = "http://services.service.WebService.org/EditorService/getEditorByBookTitleRequest", output = "http://services.service.WebService.org/EditorService/getEditorByBookTitleResponse")
+    public Editor getEditorByBookTitle(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<org.webservice.service.services.Editor>
      */
     @WebMethod

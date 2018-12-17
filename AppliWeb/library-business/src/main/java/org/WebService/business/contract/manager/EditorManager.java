@@ -8,7 +8,7 @@ import java.util.List;
 public interface EditorManager {
 
     Editor getEditor(Editor editor);
-
+    Editor getByBookTitle(String title);
     List<Editor> listEditors();
     Editor getById(Integer id);
 }

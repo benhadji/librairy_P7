@@ -30,6 +30,10 @@ public class AuthorService extends AbstractService {
         return getManagerFactory().getAuthorManager().getById(id);
     }
 
+    @WebMethod
+    public Author getAuthorByBooktitle(String title) {
+        return getManagerFactory().getAuthorManager().getAuthorByBookTitle(title);
+    }
 
 
 }

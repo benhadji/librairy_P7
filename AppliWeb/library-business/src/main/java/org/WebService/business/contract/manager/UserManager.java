@@ -10,5 +10,5 @@ public interface UserManager {
     UserAccount getloginUSer(String email);
     boolean validateLogin (UserAccount utilisateur, String password);
     String signupNewSubscriber(UserAccount user);
-
+    void updateUser(UserAccount user);
 }

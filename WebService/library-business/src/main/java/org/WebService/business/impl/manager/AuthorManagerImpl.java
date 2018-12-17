@@ -10,24 +10,27 @@ public class AuthorManagerImpl extends AbstractManagerImpl implements AuthorMana
 
     @Override
     public List<Author> getByName(String name) {
-        List<Author> authors = getDaoFactory().getAuthorDAO().getByName(name);
-        return authors;
+        return getDaoFactory().getAuthorDAO().getByName(name);
     }
 
     @Override
     public void createAuthor(Author author) {
         getDaoFactory().getAuthorDAO().create(author);
-
     }
 
     @Override
     public List<Author> getAllAuthors() {
-        return null;
+        return getDaoFactory().getAuthorDAO().getAllAuthors();
     }
 
     @Override
     public Author getById(Integer id) {
         return getDaoFactory().getAuthorDAO().getById(id);
+    }
+
+    @Override
+    public Author getAuthorByBookTitle(String title) {
+        return getDaoFactory().getAuthorDAO().getAuthorByBookTitle(title);
     }
 
 

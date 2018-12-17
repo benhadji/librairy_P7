@@ -9,6 +9,7 @@ public class ManagerFactoryImpl implements ManagerFactory{
     private BorrowManager borrowManager;
     private EditorManager editorManager;
     private UserManager userManager;
+    private ReservationManager reservationManager;
 
 
 
@@ -61,5 +62,15 @@ public class ManagerFactoryImpl implements ManagerFactory{
     @Override
     public void setUserAccountManager(UserManager userAccountManager) {
         userManager = userAccountManager;
+    }
+
+    @Override
+    public ReservationManager getReservationManager() {
+        return reservationManager;
+    }
+
+    @Override
+    public void setReservationManager(ReservationManager reservationManager) {
+        this.reservationManager = reservationManager;
     }
 }

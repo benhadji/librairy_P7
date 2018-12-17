@@ -11,8 +11,7 @@ public class UserService extends AbstractService{
 
 
     @WebMethod
-    public UserAccount findUserByEmail(String email)
-    {
+    public UserAccount findUserByEmail(String email){
         return getManagerFactory().getUserAccountManager().displayUser(email);
     }
 

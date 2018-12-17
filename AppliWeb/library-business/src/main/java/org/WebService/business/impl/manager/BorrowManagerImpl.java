@@ -3,6 +3,8 @@ package org.WebService.business.impl.manager;
 import org.WebService.business.AbstractManager;
 import org.WebService.business.contract.manager.BorrowManager;
 import org.webservice.service.services.Borrow;
+
+import java.util.Date;
 import java.util.List;
 
 public class BorrowManagerImpl extends AbstractManager implements BorrowManager {
@@ -52,6 +54,16 @@ public class BorrowManagerImpl extends AbstractManager implements BorrowManager 
     @Override
     public Borrow getById(int parseInt) {
         return getDaoFactory().getBorrowDAO().getByID(parseInt);
+    }
+
+    @Override
+    public Borrow getClosestBorrow(Integer isbn) {
+        return getDaoFactory().getBorrowDAO().getClosestBorrow(isbn);
+    }
+
+    @Override
+    public List<Borrow> sendMailReminder() {
+        return getDaoFactory().getBorrowDAO().sendMailReminder();
     }
 
 

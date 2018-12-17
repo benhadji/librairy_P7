@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Context>
-    <Resource name="jdbc/db_projet4"
+    <Resource name="jdbc/db_projet7"
               auth="Container"
               type="javax.sql.DataSource"
 
-              url="jdbc:postgresql://localhost:5432/db_projet4"
+              url="jdbc:postgresql://localhost:5432/db_projet7"
               driverClassName="org.postgresql.Driver"
-              username="postgres"
+              username="adm_projet7"
               password="momo12345#"
               defaultAutoCommit="true"
               defaultTransactionIsolation="READ_COMMITTED"

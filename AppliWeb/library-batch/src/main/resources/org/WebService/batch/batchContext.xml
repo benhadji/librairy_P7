@@ -19,7 +19,7 @@
         <property name="host" value="smtp.gmail.com"/>
         <property name="port" value="587"/>
         <property name="username" value="projet4.openclassrooms@gmail.com"/>
-        <property name="password" value="openclassrooms"/>
+        <property name="password" value="openclassrooms_projet7"/>
         <property name="javaMailProperties">
             <props>
                 <prop key="mail.transport.protocol">smtp</prop>
@@ -49,10 +49,11 @@
 
     <bean id="runScheduler" class="org.WebService.batch.Scheduler"/>
     <bean id="batchTasklet" class="org.WebService.batch.BatchTasklet"/>
+    <bean id="reservationTasklet" class="org.WebService.batch.ReservationTasklet"/>
 
     <batch:job id="scheduledJob">
-        <batch:step id="jobStep">
-            <batch:tasklet ref="batchTasklet" />
+        <batch:step id="jobStep2">
+            <batch:tasklet ref="reservationTasklet" />
         </batch:step>
     </batch:job>
 

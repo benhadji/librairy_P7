@@ -27,4 +27,9 @@ public class AuthorManagerImpl extends AbstractManager implements AuthorManager 
     public Author getById(Integer id) {
         return getDaoFactory().getAuthorDAO().getById(id);
     }
+
+    @Override
+    public Author getAuthorByBookTitle(String title) {
+        return getDaoFactory().getAuthorDAO().getAuthorByBookTitle(title);
+    }
 }

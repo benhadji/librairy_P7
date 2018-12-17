@@ -27,15 +27,18 @@ public interface AuthorService {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns java.util.List<org.webservice.service.services.Author>
+     *     returns org.webservice.service.services.Author
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listAuthors", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthors")
-    @ResponseWrapper(localName = "listAuthorsResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthorsResponse")
-    @Action(input = "http://services.service.WebService.org/AuthorService/listAuthorsRequest", output = "http://services.service.WebService.org/AuthorService/listAuthorsResponse")
-    public List<Author> listAuthors();
+    @RequestWrapper(localName = "getAuthorByBooktitle", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByBooktitle")
+    @ResponseWrapper(localName = "getAuthorByBooktitleResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetAuthorByBooktitleResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/getAuthorByBooktitleRequest", output = "http://services.service.WebService.org/AuthorService/getAuthorByBooktitleResponse")
+    public Author getAuthorByBooktitle(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
     /**
      * 
@@ -55,6 +58,30 @@ public interface AuthorService {
     /**
      * 
      * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "createAuthor", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthor")
+    @ResponseWrapper(localName = "createAuthorResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthorResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/createAuthorRequest", output = "http://services.service.WebService.org/AuthorService/createAuthorResponse")
+    public void createAuthor(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Author arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<org.webservice.service.services.Author>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listAuthors", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthors")
+    @ResponseWrapper(localName = "listAuthorsResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.ListAuthorsResponse")
+    @Action(input = "http://services.service.WebService.org/AuthorService/listAuthorsRequest", output = "http://services.service.WebService.org/AuthorService/listAuthorsResponse")
+    public List<Author> listAuthors();
+
+    /**
+     * 
+     * @param arg0
      * @return
      *     returns org.webservice.service.services.Author
      */
@@ -66,17 +93,5 @@ public interface AuthorService {
     public Author getAuthorById(
         @WebParam(name = "arg0", targetNamespace = "")
         Integer arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "createAuthor", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthor")
-    @ResponseWrapper(localName = "createAuthorResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.CreateAuthorResponse")
-    @Action(input = "http://services.service.WebService.org/AuthorService/createAuthorRequest", output = "http://services.service.WebService.org/AuthorService/createAuthorResponse")
-    public void createAuthor(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Author arg0);
 
 }

@@ -36,6 +36,13 @@
             <property name="userAccountRM" ref="userAccountRM"/>
         </bean>
 
+
+        <bean id="reservationDao" class="org.WebService.consumer.impl.DAO.ReservationDaoImpl" parent = "abstractDao">
+            <property name="reservationRM" ref="reservationRM"/>
+        </bean>
+
+
+
         <!-- ===== DaoFactory ===== -->
         <bean id="daoFactory" class="org.WebService.consumer.impl.DaoFactoryImpl">
             <property name="authorDAO" ref="authorDao"/>
@@ -43,6 +50,7 @@
             <property name="borrowDAO" ref="borrowDao" />
             <property name="editorDAO" ref="editorDao"  />
             <property name="userAccountDAO" ref="userDao"  />
+            <property name="reservationDAO" ref="reservationDao"  />
 
         </bean>
 
@@ -53,6 +61,7 @@
         <bean id="borrowRM" class="org.WebService.consumer.impl.RowMapper.BorrowRM"/>
         <bean id="editorRM" class="org.WebService.consumer.impl.RowMapper.EditorRM"/>
         <bean id="userAccountRM" class="org.WebService.consumer.impl.RowMapper.UserAccountRM"/>
+        <bean id="reservationRM" class="org.WebService.consumer.impl.RowMapper.ReservationRM"/>
 
     </beans>
 

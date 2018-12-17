@@ -17,5 +17,8 @@ public interface ManagerFactory {
     UserAccountManager getUserAccountManager();
     void setUserAccountManager(UserAccountManager userAccountManager);
 
+    ReservationManager getReservationManager();
+    void setReservationManager(ReservationManager reservationManager);
+
 
 }

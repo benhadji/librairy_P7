@@ -10,4 +10,5 @@ public interface EditorDAO {
     List<Editor> getAllEditors();
     List<Editor> getByName(String name);
     Editor getById(Integer id);
+    Editor getByBookTitle(String title);
 }

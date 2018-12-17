@@ -74,14 +74,14 @@
                         <s:else>
                             <li class='has-sub'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
                             <li class='has-sub'><a href="<s:url namespace="/membre" action="myAccount"/>"><span>Mon Compte</span></a></li>
-                            <li class='active'><a href="<s:url namespace="/" action="bookList"/>"><span>Consulter Livres</span></a></li>
+                            <li class='active'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
                             <li class='has-sub'><a href="<s:url namespace="/membre" action="logout"/>"><span>Se deconnecter</span></a></li>
                         </s:else>
                     </ul>
                 </div>
 
                 <div class="search">
-                    <s:form action="search" namespace="/">
+                    <s:form action="search" namespace="/membre">
 
                         <div class="input-group">
                             <input type="text" name="nom" class="form-control" placeholder="Search for..."/>
@@ -112,6 +112,8 @@
             <th style="width:20%;">Maison d'edition</th>
             <th style="width:20%;">Année d'edition</th>
             <th style="width:20%;">Disponibilité</th>
+            <th style="width:20%;">Action</th>
+
         </tr>
         </thead>
         <tbody>
@@ -122,11 +124,15 @@
                 <td><s:property value="editor.name"/></td>
                 <td><s:property value="year"/></td>
 
-                <s:if test="%{borrowByBook.size()>=nbOfCopy}">
-                    <td>Indsponible</td>
+                <s:if test="%{nbOfCopy>3}">
+                    <td>Disponible</td>
                 </s:if>
                 <s:else>
-                    <td>Disponible</td>
+                    <s:url var="url" action="resaBook">
+                        <s:param name="ISBN"><s:property value="ISBN"/></s:param>
+                    </s:url>
+                    <td>Non disponible.</td>
+                    <td><a href="${url}">Reserver</a></td>
                 </s:else>
 
             </tr>

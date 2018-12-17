@@ -41,6 +41,11 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     @Override
+    public Author getAuthorByBookTitle(String title) {
+        return authorSrv.getAuthorByBooktitle(title);
+    }
+
+    @Override
     public List<Author> listAuthors() {
         return null;
     }

@@ -42,6 +42,11 @@ public class EditorDaoImpl implements EditorDao {
     }
 
     @Override
+    public Editor getByBookTitle(String title) {
+        return editorSrv.getEditorByBookTitle(title);
+    }
+
+    @Override
     public Editor getById(Integer id) {
         return editorSrv.getEditorById(id);
     }

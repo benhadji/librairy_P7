@@ -19,10 +19,10 @@ public class UserAccountRM implements RowMapper<UserAccount> {
         user.setFirstName(resultSet.getString("firstName"));
         user.setLastName(resultSet.getString("lastName"));
         user.setAddress(resultSet.getString("address"));
-        user.setBirthDate(resultSet.getDate("birthDate"));
         user.setCity(resultSet.getString("city"));
         user.setPostCode(resultSet.getInt("postCode"));
         user.setPhoneNumber(resultSet.getString("phoneNumber"));
+        user.setReminder(resultSet.getBoolean("reminder"));
 
 
         return user;

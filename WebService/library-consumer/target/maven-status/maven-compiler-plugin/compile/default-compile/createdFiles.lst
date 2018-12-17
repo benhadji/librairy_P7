@@ -1,13 +1,16 @@
 org\WebService\consumer\impl\RowMapper\EditorRM.class
 org\WebService\consumer\impl\RowMapper\UserAccountRM.class
+org\WebService\consumer\impl\RowMapper\ReservationRM.class
 org\WebService\consumer\impl\DAO\BookDaoImpl.class
 org\WebService\consumer\contract\DAO\BorrowDAO.class
 org\WebService\consumer\impl\DAO\BorrowDaoImpl.class
+org\WebService\consumer\impl\DAO\ReservationDaoImpl.class
 org\WebService\consumer\contract\DAO\EditorDAO.class
 org\WebService\consumer\contract\DAO\AuthorDAO.class
 org\WebService\consumer\contract\DaoFactory.class
 org\WebService\consumer\impl\DAO\UserAccountDaoImpl.class
 org\WebService\consumer\impl\RowMapper\BorrowRM.class
+org\WebService\consumer\contract\DAO\ReservationDAO.class
 org\WebService\consumer\impl\DAO\EditorDaoImpl.class
 org\WebService\consumer\impl\RowMapper\AuthorRM.class
 org\WebService\consumer\contract\DAO\BookDAO.class

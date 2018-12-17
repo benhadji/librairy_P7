@@ -1,4 +1,6 @@
+C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\contract\DAO\ReservationDAO.java
 C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\contract\DaoFactory.java
+C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\impl\RowMapper\ReservationRM.java
 C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\impl\RowMapper\AuthorRM.java
 C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\impl\RowMapper\UserAccountRM.java
 C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\impl\DAO\BorrowDaoImpl.java
@@ -16,3 +18,4 @@ C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\l
 C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\impl\RowMapper\EditorRM.java
 C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\contract\DAO\BookDAO.java
 C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\impl\RowMapper\BorrowRM.java
+C:\Users\bhadji\Documents\OpenClassRooms\Projets\Projet7\library_V2\WebService\library-consumer\src\main\java\org\WebService\consumer\impl\DAO\ReservationDaoImpl.java

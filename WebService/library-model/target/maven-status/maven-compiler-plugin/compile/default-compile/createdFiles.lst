@@ -1,5 +1,6 @@
 org\WebService\model\UserAccount.class
 org\WebService\model\Book.class
 org\WebService\model\Borrow.class
+org\WebService\model\Reservation.class
 org\WebService\model\Author.class
 org\WebService\model\Editor.class
