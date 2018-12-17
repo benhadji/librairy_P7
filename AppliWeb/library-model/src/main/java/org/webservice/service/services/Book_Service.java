@@ -17,7 +17,9 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
+
 @WebServiceClient(name = "Book", targetNamespace = "http://services.service.WebService.org/", wsdlLocation = "http://lfr023221:8080/library-service4449323544803110163/Book?wsdl")
+
 public class Book_Service
     extends Service
 {

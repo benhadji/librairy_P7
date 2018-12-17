@@ -17,6 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
+
 @WebServiceClient(name = "Borrow", targetNamespace = "http://services.service.WebService.org/", wsdlLocation = "http://lfr023221:8080/library-service4449323544803110163/Borrow?wsdl")
 public class Borrow_Service
     extends Service

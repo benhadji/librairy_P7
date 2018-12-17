@@ -42,21 +42,6 @@ public interface EditorService {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<org.webservice.service.services.Editor>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getEditorByName", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByName")
-    @ResponseWrapper(localName = "getEditorByNameResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByNameResponse")
-    @Action(input = "http://services.service.WebService.org/EditorService/getEditorByNameRequest", output = "http://services.service.WebService.org/EditorService/getEditorByNameResponse")
-    public List<Editor> getEditorByName(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
      * @return
      *     returns java.util.List<org.webservice.service.services.Editor>
      */
@@ -81,5 +66,20 @@ public interface EditorService {
     public Editor getEditorById(
         @WebParam(name = "arg0", targetNamespace = "")
         Integer arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<org.webservice.service.services.Editor>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEditorByName", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByName")
+    @ResponseWrapper(localName = "getEditorByNameResponse", targetNamespace = "http://services.service.WebService.org/", className = "org.webservice.service.services.GetEditorByNameResponse")
+    @Action(input = "http://services.service.WebService.org/EditorService/getEditorByNameRequest", output = "http://services.service.WebService.org/EditorService/getEditorByNameResponse")
+    public List<Editor> getEditorByName(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
 }
