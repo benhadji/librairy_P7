@@ -65,6 +65,10 @@
             <result name="login">/WEB-INF/login.jsp</result>
         </action>
 
+        <action name="reminder" class="org.WebService.webapp.action.MyAccountAction" method="doReminder">
+            <result name="success">/membre/myBorrows.jsp</result>
+        </action>
+
         <action name="logout" class="org.WebService.webapp.action.LogoutAction" method="execute">
             <result name="success" type="redirectAction">
                 <param name="actionName">home</param>
@@ -79,7 +83,7 @@
         </action>
 
         <action name="bookList" class="org.WebService.webapp.action.BookListAction" method="execute">
-            <result name="success">/WEB-INF/bookList.jsp</result>
+            <result name="success">/membre/bookList.jsp</result>
             <result name="login">/WEB-INF/login.jsp</result>
         </action>
 
@@ -87,9 +91,6 @@
             <result name="success">/membre/resultSearch.jsp</result>
             <result name="login">/WEB-INF/login.jsp</result>
         </action>
-
-
-
 
         <action name="deleteResa" class="org.WebService.webapp.action.DeleteReservationAction" method="execute">
             <result name="success">/membre/myResa.jsp</result>

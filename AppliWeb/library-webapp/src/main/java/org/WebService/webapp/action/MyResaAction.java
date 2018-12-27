@@ -3,33 +3,37 @@ package org.WebService.webapp.action;
 import org.WebService.resource.AbstractResource;
 import org.apache.struts2.interceptor.SessionAware;
 import org.webservice.service.services.Book;
+import org.webservice.service.services.Borrow;
 import org.webservice.service.services.Reservation;
 import org.webservice.service.services.UserAccount;
+
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 
 public class MyResaAction extends AbstractResource implements SessionAware {
 
     private List<Reservation> reservationList = new ArrayList<>();
     private Map<String, Object> session;
-    private List<Reservation> resaByBook;
-    private Integer positionInList;
+    private Borrow closestReturn;
+    private XMLGregorianCalendar closestDate;
 
-    public Integer getPositionInList() {
-        return positionInList;
+    public XMLGregorianCalendar getClosestDate() {
+        return closestDate;
     }
 
-    public void setPositionInList(Integer positionInList) {
-        this.positionInList = positionInList;
+    public void setClosestDate(XMLGregorianCalendar closestDate) {
+        this.closestDate = closestDate;
     }
 
-    public List<Reservation> getResaByBook() {
-        return resaByBook;
+    public Borrow getClosestReturn() {
+        return closestReturn;
     }
 
-    public void setResaByBook(List<Reservation> resaByBook) {
-        this.resaByBook = resaByBook;
+    public void setClosestReturn(Borrow closestReturn) {
+        this.closestReturn = closestReturn;
     }
 
     public List<Reservation> getReservationList() {
@@ -53,13 +57,20 @@ public class MyResaAction extends AbstractResource implements SessionAware {
         UserAccount user = (UserAccount)session.get("sessionUserAccount");
         reservationList = getManagerFactory().getReservationManager().listResaByUser(user);
 
-        for (Reservation reservation : reservationList){
-            Book book = getManagerFactory().getBookManager().getBook(reservation.getISBN());
-            reservation.setBook(book);
-
-            resaByBook = getManagerFactory().getReservationManager().listResaByBook(book);
-            positionInList = resaByBook.size();
+        if (reservationList.isEmpty()){
+            addActionMessage("Vous n'avez reservé aucun livre pour le moment.");
         }
+        else{
+            for (Reservation reservation : reservationList){
+                Book book = getManagerFactory().getBookManager().getBook(reservation.getISBN());
+                reservation.setBook(book);
+                closestReturn = getManagerFactory().getBorrowManager().getClosestBorrow(book.getISBN());
+                closestDate = closestReturn.getEndDate();
+                reservation.setClosest(closestDate);
+
+            }
+        }
+
 
         return "success";
     }

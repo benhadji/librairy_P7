@@ -4,7 +4,6 @@ import org.WebService.resource.AbstractResource;
 import org.apache.struts2.interceptor.SessionAware;
 import org.webservice.service.services.Book;
 import org.webservice.service.services.Borrow;
-import org.webservice.service.services.Reservation;
 import org.webservice.service.services.UserAccount;
 
 
@@ -68,6 +67,7 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
 
             UserAccount user = (UserAccount)session.get("sessionUserAccount");
             email = user.getEmail();
+            reminder = user.isReminder();
 
             borrows = getManagerFactory().getBorrowManager().getBorrowByUserEmail(email);
 
@@ -75,19 +75,13 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
                 Book book = getManagerFactory().getBookManager().getBook(borrow.getISBN());
                 borrow.setBook(book);
             }
-
             if (reminder){
-                user.setReminder(true);
-                getManagerFactory().getUserAccountManager().updateUser(user);
                 addActionMessage("Vous avez activé l'option vous envoyant un mail \n " +
                         "5 jours avant la fin de vos prets");
             }
-            else{
-                user.setReminder(false);
-                getManagerFactory().getUserAccountManager().updateUser(user);
+            else
                 addActionMessage("Vous avez desactivé l'option vous envoyant un mail. \n " +
                         "Vous ne recevrez plus la notification de rappel, 5 jours avant la fin de vos prets");
-            }
 
             return "success";
 
@@ -95,6 +89,38 @@ public class MyAccountAction extends AbstractResource implements SessionAware{
         else
             return LOGIN;
 
+
+    }
+
+    public String doReminder(){
+
+        UserAccount user = (UserAccount)session.get("sessionUserAccount");
+        email = user.getEmail();
+        borrows = getManagerFactory().getBorrowManager().getBorrowByUserEmail(email);
+
+        for (Borrow borrow : borrows){
+            Book book = getManagerFactory().getBookManager().getBook(borrow.getISBN());
+            borrow.setBook(book);
+        }
+
+        if (reminder){
+            user.setReminder(true);
+            getManagerFactory().getUserAccountManager().updateUser(user);
+            session.remove("sessionUserAccount");
+            session.put("sessionUserAccount", user);
+            addActionMessage("Vous avez activé l'option vous envoyant un mail \n " +
+                    "5 jours avant la fin de vos prets");
+        }
+        else{
+            user.setReminder(false);
+            session.remove("sessionUserAccount");
+            session.put("sessionUserAccount", user);
+            getManagerFactory().getUserAccountManager().updateUser(user);
+            addActionMessage("Vous avez desactivé l'option vous envoyant un mail. \n " +
+                    "Vous ne recevrez plus la notification de rappel, 5 jours avant la fin de vos prets");
+        }
+
+        return SUCCESS;
 
     }
 

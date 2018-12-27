@@ -58,7 +58,7 @@
         <div class="wrap">
             <div class="header">
                 <div class="logo">
-                    <h1><a href="<s:url namespace="/" action="home"/>"><img src="images/logo.png"></a></h1>
+                    <h1><a href="<s:url namespace="/membre" action="home"/>"><img src="images/logo.png"></a></h1>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -97,16 +97,14 @@
     <s:if test="%{bookName!=null && bookName.size()!=0}">
         <table class="table">
             <thead class="thead-inverse">
-            <tr>
-                <th style="width:10%;">Titre</th>
-                <th style="width:20%;">Auteur</th>
-                <th style="width:20%;">Maison d'edition</th>
-                <th style="width:10%;">Année d'edition</th>
-                <th style="width:20%;">Disponibilité</th>
-                <th style="width:40%;">Action</th>
-
-
-            </tr>
+                <tr>
+                    <th style="width:10%;">Titre</th>
+                    <th style="width:20%;">Auteur</th>
+                    <th style="width:20%;">Maison d'edition</th>
+                    <th style="width:10%;">Année d'edition</th>
+                    <th style="width:20%;">Disponibilité</th>
+                    <th style="width:40%;">Action</th>
+                </tr>
             </thead>
             <tbody>
             <s:iterator value="bookName">
@@ -115,7 +113,7 @@
                     <td><s:property value="author.firstName"/> <s:property value="author.lastName"/></td>
                     <td><s:property value="editor.name"/></td>
                     <td><s:property value="year"/></td>
-                    <s:if test="%{copieRestant>3}">
+                    <s:if test="%{copieRestant>0}">
                         <td>Disponible</td>
                         <td>Merci de venir l'emprunter sur place</td>
                     </s:if>

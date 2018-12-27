@@ -20,6 +20,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="book" type="{http://services.service.WebService.org/}book" minOccurs="0"/>
+ *         &lt;element name="closest" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ISBN" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -38,6 +39,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "reservation", propOrder = {
     "book",
+    "closest",
     "email",
     "isbn",
     "id",
@@ -49,6 +51,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class Reservation {
 
     protected Book book;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar closest;
     protected String email;
     @XmlElement(name = "ISBN")
     protected Integer isbn;
@@ -82,6 +86,30 @@ public class Reservation {
      */
     public void setBook(Book value) {
         this.book = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété closest.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getClosest() {
+        return closest;
+    }
+
+    /**
+     * Définit la valeur de la propriété closest.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setClosest(XMLGregorianCalendar value) {
+        this.closest = value;
     }
 
     /**

@@ -69,7 +69,7 @@
             <div class='h_btm'>
                 <div class='cssmenu'>
                     <ul>
-                        <li class='has-sub'><a href="<s:url namespace="/" action="home"/>"><span>Acceuil</span></a></li>
+                        <li class='has-hub'><a href="<s:url namespace="/" action="home"/>"><span>Acceuil</span></a></li>
                         <li class='active'><a href="<s:url namespace="/" action="signUp"/>"><span>S'inscrire</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
                         <li class='last'><a href="<s:url namespace="/" action="contact"/>"><span>Contact</span></a></li>
@@ -134,22 +134,6 @@
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                         <s:textfield name="userAccount.lastName" class="form-control" id="lastName"
                                placeholder="Hugo" required="true"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- birthDate -->
-
-        <div class="row">
-            <div class="col-md-3 field-label-responsive">
-                <label for="birthDate">Date de naissance</label>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input type="date" name="birthDate" id="birthDate">
                     </div>
                 </div>
             </div>

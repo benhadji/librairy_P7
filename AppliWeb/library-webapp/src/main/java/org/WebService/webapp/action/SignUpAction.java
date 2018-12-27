@@ -11,7 +11,6 @@ public class SignUpAction extends AbstractResource {
     private UserAccount userAccount;
     private String firstName, lastName, email, password, passwordConfirmation;
     private String address, city, phoneNumber;
-    private Date birthDate;
     private Integer postCode;
 
     public UserAccount getUserAccount() {
@@ -84,15 +83,6 @@ public class SignUpAction extends AbstractResource {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    @TypeConversion(converter = "StringToDateConverter")
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public Integer getPostCode() {

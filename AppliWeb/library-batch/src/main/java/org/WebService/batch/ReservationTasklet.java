@@ -45,7 +45,6 @@ public class ReservationTasklet extends AbstractManager implements Tasklet {
 
 
             if(reservation.getSendMailDate() == null){
-                System.out.println("La date d'envoi est null, l'email vient de partir !!!!!!");
                 reservation.setSendMailDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar));
                 getManagerFactory().getReservationManager().updateReservation(reservation);
                 mail.sendMail(to, subject, body1);
@@ -54,18 +53,14 @@ public class ReservationTasklet extends AbstractManager implements Tasklet {
                 sendMailDate = reservation.getSendMailDate().toGregorianCalendar().toZonedDateTime().toLocalDate();
                 if(DAYS.between(sendMailDate, currentDate) >= 2){
                     getManagerFactory().getReservationManager().deleteReservation(reservation);
-                    System.out.println("La resa a ete correctement supprimé");
 
                     List<Reservation> listResaByBook = getManagerFactory().getReservationManager().listResaByBook(reservation.getBook());
 
                     if(!listResaByBook.isEmpty()){
-                        System.out.println("La liste n'est pas vide");
 
                         for (Reservation nextResa : listResaByBook){
                             nextResa.setPosition(nextResa.getPosition()-1);
                             getManagerFactory().getReservationManager().updateReservation(nextResa);
-                            System.out.println("La position du livre suivant dans la liste d'attente a bien ete mise a jour");
-
 
                             Book nextResaBook = getManagerFactory().getBookManager().getBook(nextResa.getISBN());
                             nextResa.setBook(nextResaBook);
@@ -77,17 +72,9 @@ public class ReservationTasklet extends AbstractManager implements Tasklet {
                             nextResa.setSendMailDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar));
                             getManagerFactory().getReservationManager().updateReservation(nextResa);
                             mail.sendMail(nextResa.getEmail(), subject, body2);
-                            System.out.println("Un mail vient d'etre envoyé a l'utilisateur suivant dans la liste d'attente");
-
 
                         }
                     }
-                    else{
-                        System.out.println("La liste est vide !!");
-                    }
-                }
-                else{
-                    System.out.println("L'envoi de notif est inferieur a 48h, pour l'instant ne rien faire");
                 }
             }
 

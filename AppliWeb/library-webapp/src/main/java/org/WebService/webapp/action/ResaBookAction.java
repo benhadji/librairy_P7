@@ -98,8 +98,22 @@ public class ResaBookAction extends AbstractResource implements SessionAware {
                 for (Reservation reservation : reservationListByUser){
                     if (reservation.getISBN().equals(book.getISBN())){
                         addActionMessage("Vous avez deja reservé ce livre !");
+                        return "succes";
                     }
                 }
+
+                getManagerFactory().getReservationManager().addReservation(book, user);
+                reservationListByBook = getManagerFactory().getReservationManager().listResaByBook(book);
+
+                if(reservationListByBook.size() == 1){
+                    addActionMessage("La reservation a bien ete pris en compte.\n " +
+                            "Vous est le premier sur la liste d'attente pour le pret du livre.");
+                }
+                else if (reservationListByBook.size() > 1){
+                    addActionMessage("La reservation a bien ete pris en compte.\n " +
+                            "Vous est en "+ reservationListByBook.size() + " position dans la liste d'attente pour le pret du livre.");
+                }
+
             }
             return "success";
         }

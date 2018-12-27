@@ -154,28 +154,26 @@ public class SearchAction extends AbstractResource implements SessionAware {
 
                 for (Book book : bookName){
 
-                        author = getManagerFactory().getAuthorManager().getAuthorByBookTitle(book.getTitle());
-                        editor = getManagerFactory().getEditorManager().getByBookTitle(book.getTitle());
-                        reservationListByBook = getManagerFactory().getReservationManager().listResaByBook(book);
+                    author = getManagerFactory().getAuthorManager().getAuthorByBookTitle(book.getTitle());
+                    editor = getManagerFactory().getEditorManager().getByBookTitle(book.getTitle());
+                    reservationListByBook = getManagerFactory().getReservationManager().listResaByBook(book);
+                    book.setAuthor(author);
+                    book.setEditor(editor);
+
+
+                    resaLimits = book.getNbOfCopy()*2;
+                    if(book.getCopieRestant() == 0){
                         closestReturn = getManagerFactory().getBorrowManager().getClosestBorrow(book.getISBN());
-                        book.setAuthor(author);
-                        book.setEditor(editor);
+                        closestEndDate = closestReturn.getEndDate().toGregorianCalendar().getTime();
+                    }
 
 
-                        resaLimits = book.getNbOfCopy()*2;
-
-                        if(borrowList.contains(book.getISBN())){
-                            closestReturn = getManagerFactory().getBorrowManager().getClosestBorrow(book.getISBN());
-                            closestEndDate = closestReturn.getEndDate().toGregorianCalendar().getTime();
+                    for (Borrow borrow : borrowList){  // Pour voir si le user a emprunter le livre qu'il veut reserver
+                        flag = false;
+                        if (book.getISBN().equals(borrow.getISBN())){
+                            flag = true;
                         }
-
-
-                        for (Borrow borrow : borrowList){  // Pour voir si le user a emprunter le livre qu'il veut reserver
-                            flag = false;
-                            if (book.getISBN().equals(borrow.getISBN())){
-                                flag = true;
-                            }
-                        }
+                    }
 
                 }
 

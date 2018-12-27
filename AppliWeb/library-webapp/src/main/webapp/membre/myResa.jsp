@@ -71,9 +71,9 @@
             <div class='h_btm'>
                 <div class='cssmenu'>
                     <ul>
-                        <li class='active'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="myBorrows"/>"><span>Mes emprunts</span></a></li>
-                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myResa"/>"><span>Mes Reservations</span></a></li>
+                        <li class='active'><a href="<s:url namespace="/membre" action="myResa"/>"><span>Mes Reservations</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="logout"/>"><span>Se deconnecter</span></a></li>
                     </ul>
@@ -104,6 +104,7 @@
         <tr>
             <th style="width:20%;">Livres emprunté</th>
             <th style="width:20%;">Date de reservation</th>
+            <th style="width:20%;">Prochain retour</th>
             <th style="width:20%;">Position dans la liste d'attente</th>
             <th style="width:20%;">Action</th>
         </tr>
@@ -113,7 +114,8 @@
             <tr>
                 <td><s:property value="book.title"/></td>
                 <td><s:property value="reservationDate.toGregorianCalendar().getTime()"/></td>
-                <td><s:property value="positionInList"/></td>
+                <td><s:property value="closest.toGregorianCalendar().getTime()"/></td>
+                <td><s:property value="position"/></td>
                 <s:url var="url" action="deleteResa" namespace="/membre">
                     <s:param name="id"><s:property value="id"/></s:param>
                 </s:url>

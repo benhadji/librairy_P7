@@ -6,9 +6,26 @@
 library-consumer/library-consumer.iml
 
 # Target folder #
-library-batch/target
-library-business/target
-library-consumer/target
-library-model/target
-library-service/target
+library-batch/target/
+library-business/target/
+library-consumer/target/
+library-model/target/
+library-service/target/
+library-webapp/src/main/webapp/WEB-INF/images/
+library-webapp/src/main/webapp/css/
+library-webapp/src/main/webapp/fonts/
+library-webapp/src/main/webapp/images/
+library-webapp/src/main/webapp/js/
+library-webapp/src/main/webapp/less/
+library-webapp/src/main/webapp/scss/
+library-webapp/src/main/webapp/vendor/
+library-webapp/src/main/webapp/membre/css/
+library-webapp/src/main/webapp/membre/fonts/
+library-webapp/src/main/webapp/membre/images/
+library-webapp/src/main/webapp/membre/js/
+library-webapp/src/main/webapp/membre/less/
+library-webapp/src/main/webapp/membre/scss/
+library-webapp/src/main/webapp/membre/vendor/
+
+
 

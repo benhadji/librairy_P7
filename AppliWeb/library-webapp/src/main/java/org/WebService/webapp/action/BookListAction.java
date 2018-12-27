@@ -15,7 +15,6 @@ public class BookListAction extends AbstractResource implements SessionAware{
 
 
     private List<Book> books = new ArrayList<>();
-    private Book book;
     private Author author;
     private Editor editor;
     private Map<String, Object> session;
@@ -53,20 +52,20 @@ public class BookListAction extends AbstractResource implements SessionAware{
         this.books = books;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
 
 
     public String execute(){
 
         if(session.containsKey("sessionUserAccount")){
             books = getManagerFactory().getBookManager().getAllBooks();
+
+            for (Book book : books){
+                author = getManagerFactory().getAuthorManager().getAuthorByBookTitle(book.getTitle());
+                editor = getManagerFactory().getEditorManager().getByBookTitle(book.getTitle());
+                book.setAuthor(author);
+                book.setEditor(editor);
+            }
+
 
             return "success";
         }

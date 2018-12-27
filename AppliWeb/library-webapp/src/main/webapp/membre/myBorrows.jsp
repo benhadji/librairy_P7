@@ -45,29 +45,6 @@
             list-style: none;
         }
 
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted black;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-
-            /* Position the tooltip */
-            position: absolute;
-            z-index: 1;
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-        }
     </style>
 
 
@@ -96,8 +73,8 @@
             <div class='h_btm'>
                 <div class='cssmenu'>
                     <ul>
-                        <li class='active'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
-                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myBorrows"/>"><span>Mes emprunts</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
+                        <li class='active'><a href="<s:url namespace="/membre" action="myBorrows"/>"><span>Mes emprunts</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="myResa"/>"><span>Mes Reservations</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
                         <li class='has-sub'><a href="<s:url namespace="/membre" action="logout"/>"><span>Se deconnecter</span></a></li>
@@ -141,13 +118,13 @@
                     <td><s:property value="startDate.toGregorianCalendar().getTime()"/></td>
                     <td><s:property value="endDate.toGregorianCalendar().getTime()"/></td>
 
-                    <s:if test="%{!isExtended() && endDate.toGregorianCalendar().time.before(currentDate)}">
+                    <s:if test="%{!isExtended() && endDate.toGregorianCalendar().time.after(currentDate)}">
                         <s:url var="url" action="extendBorrow">
                             <s:param name="id"><s:property value="id"/></s:param>
                         </s:url>
                         <td><a href="${url}">Prolonger</a></td>
                     </s:if>
-                    <s:elseif test="%{endDate.toGregorianCalendar().time.after(currentDate)}">
+                    <s:elseif test="%{endDate.toGregorianCalendar().time.before(currentDate)}">
                         <td>Livre à rendre</td>
                     </s:elseif>
                     <s:elseif test="%{isExtended()}">
@@ -161,9 +138,9 @@
 
 
     <div class="row">
-        <s:form action="myBorrows" namespace="/membre">
-                <s:checkbox name="reminder" label="isReminder" fieldValue="true"/>
-                <s:submit value="Activer rappel"/>
+        <s:form action="reminder" namespace="/membre">
+                <s:checkbox name="reminder" value="reminder" fieldValue="true"/>
+                <s:submit value="Rappel par mail ?"/>
         </s:form>
     </div>
 

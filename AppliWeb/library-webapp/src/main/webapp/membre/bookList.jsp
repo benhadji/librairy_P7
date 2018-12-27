@@ -65,18 +65,11 @@
             <div class='h_btm'>
                 <div class='cssmenu'>
                     <ul>
-                        <s:if test="%{#session.sessionUserAccount.email==null}">
-                            <li class='has-sub'><a href="<s:url namespace="/" action="home"/>"><span>Acceuil</span></a></li>
-                            <li class='has-sub'><a href="<s:url namespace="/" action="signUp"/>"><span>S'inscrire</span></a></li>
-                            <li class='active'><a href="<s:url namespace="/" action="bookList"/>"><span>Consulter Livres</span></a></li>
-                            <li class='last'><a href="<s:url namespace="/" action="contact"/>"><span>Contact</span></a></li>
-                        </s:if>
-                        <s:else>
-                            <li class='has-sub'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
-                            <li class='has-sub'><a href="<s:url namespace="/membre" action="myAccount"/>"><span>Mon Compte</span></a></li>
-                            <li class='active'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
-                            <li class='has-sub'><a href="<s:url namespace="/membre" action="logout"/>"><span>Se deconnecter</span></a></li>
-                        </s:else>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="home"/>"><span>Acceuil</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myBorrows"/>"><span>Mes emprunts</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="myResa"/>"><span>Mes Reservations</span></a></li>
+                        <li class='active'><a href="<s:url namespace="/membre" action="bookList"/>"><span>Consulter Livres</span></a></li>
+                        <li class='has-sub'><a href="<s:url namespace="/membre" action="logout"/>"><span>Se deconnecter</span></a></li>
                     </ul>
                 </div>
 
@@ -106,15 +99,12 @@
 
     <table class="table">
         <thead class="thead-inverse">
-        <tr>
-            <th style="width:20%;">Titre</th>
-            <th style="width:20%;">Auteur</th>
-            <th style="width:20%;">Maison d'edition</th>
-            <th style="width:20%;">Année d'edition</th>
-            <th style="width:20%;">Disponibilité</th>
-            <th style="width:20%;">Action</th>
-
-        </tr>
+            <tr>
+                <th style="width:20%;">Titre</th>
+                <th style="width:20%;">Auteur</th>
+                <th style="width:20%;">Maison d'edition</th>
+                <th style="width:20%;">Année d'edition</th>
+            </tr>
         </thead>
         <tbody>
         <s:iterator value="books">
@@ -123,18 +113,6 @@
                 <td><s:property value="author.firstName"/> <s:property value="author.lastName"/></td>
                 <td><s:property value="editor.name"/></td>
                 <td><s:property value="year"/></td>
-
-                <s:if test="%{nbOfCopy>3}">
-                    <td>Disponible</td>
-                </s:if>
-                <s:else>
-                    <s:url var="url" action="resaBook">
-                        <s:param name="ISBN"><s:property value="ISBN"/></s:param>
-                    </s:url>
-                    <td>Non disponible.</td>
-                    <td><a href="${url}">Reserver</a></td>
-                </s:else>
-
             </tr>
         </s:iterator>
         </tbody>
