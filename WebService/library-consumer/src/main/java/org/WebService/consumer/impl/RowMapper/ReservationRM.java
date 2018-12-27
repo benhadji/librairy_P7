@@ -18,6 +18,7 @@ public class ReservationRM implements RowMapper<Reservation> {
         reservation.setPosition(rs.getInt("position"));
         reservation.setReservationDate(rs.getDate("reservationDate"));
         reservation.setSendMailDate(rs.getDate("sendMailDate"));
+        reservation.setClosest(rs.getDate("closest"));
 
         return reservation;
     }

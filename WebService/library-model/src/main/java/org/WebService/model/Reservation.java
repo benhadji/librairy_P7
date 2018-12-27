@@ -12,6 +12,15 @@ public class Reservation {
     private Date sendMailDate;
     private UserAccount user;
     private Book book;
+    private Date closest;
+
+    public Date getClosest() {
+        return closest;
+    }
+
+    public void setClosest(Date closest) {
+        this.closest = closest;
+    }
 
     public Date getSendMailDate() {
         return sendMailDate;

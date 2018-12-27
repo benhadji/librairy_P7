@@ -12,9 +12,7 @@ public class BorrowManagerImpl extends AbstractManagerImpl implements BorrowMana
 
     @Override
     public List<Borrow> getBorrowByUserEmail(String email) {
-
         return getDaoFactory().getBorrowDAO().getByUserEmail(email);
-
     }
 
     @Override
@@ -25,14 +23,12 @@ public class BorrowManagerImpl extends AbstractManagerImpl implements BorrowMana
     @Override
     public void newBorrow(Borrow borrow) {
         getDaoFactory().getBorrowDAO().create(borrow);
-
     }
 
     @Override
     public void updateBorrow(Borrow borrow) {
         getDaoFactory().getBorrowDAO().update(borrow);
     }
-
 
     @Override
     public void markAsExtended(Borrow borrow) {

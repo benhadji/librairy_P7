@@ -35,15 +35,16 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
     @Override
     public void addReservation(Reservation reservation) {
 
-        String vSQL = "INSERT INTO reservation (isbn, email, reservationdate, position, sendmaildate) " +
-                "VALUES(:isbn, :email, :reservationdate, :position, :sendmaildate)";
+        String vSQL = "INSERT INTO reservation (isbn, email, reservationdate, position, sendmaildate, closest) " +
+                "VALUES(:isbn, :email, :reservationdate, :position, :sendmaildate, :closest)";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
         vParams.addValue("isbn", reservation.getISBN(), Types.INTEGER);
         vParams.addValue("email", reservation.getEmail(), Types.VARCHAR);
         vParams.addValue("reservationdate", reservation.getReservationDate(), Types.DATE);
         vParams.addValue("position", reservation.getPosition(), Types.INTEGER);
-        vParams.addValue("sendmaildate", new Date(), Types.DATE);
+        vParams.addValue("sendmaildate", null, Types.DATE);
+        vParams.addValue("closest", null, Types.DATE);
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
         vJdbcTemplate.update(vSQL, vParams);
@@ -56,7 +57,7 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
     public void updateReservation(Reservation reservation) {
 
         String vSQL = "UPDATE public.reservation " +
-                "SET isbn=:isbn, email=:email, reservationdate=:reservationdate, position=:position, sendmaildate=:sendmaildate " +
+                "SET isbn=:isbn, email=:email, reservationdate=:reservationdate, position=:position, sendmaildate=:sendmaildate, closest=:closest " +
                 "WHERE id=:id";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
@@ -67,6 +68,7 @@ public class ReservationDaoImpl extends AbstractDaoImpl implements ReservationDA
         vParams.addValue("reservationdate", reservation.getReservationDate(), Types.DATE);
         vParams.addValue("position", reservation.getPosition(), Types.INTEGER);
         vParams.addValue("sendmaildate", reservation.getSendMailDate(), Types.DATE);
+        vParams.addValue("closest", reservation.getClosest(), Types.DATE);
 
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
