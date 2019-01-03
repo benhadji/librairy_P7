@@ -65,9 +65,10 @@ public class MyResaAction extends AbstractResource implements SessionAware {
                 Book book = getManagerFactory().getBookManager().getBook(reservation.getISBN());
                 reservation.setBook(book);
                 closestReturn = getManagerFactory().getBorrowManager().getClosestBorrow(book.getISBN());
-                closestDate = closestReturn.getEndDate();
-                reservation.setClosest(closestDate);
-
+                if(closestReturn!= null){
+                    closestDate = closestReturn.getEndDate();
+                    reservation.setClosest(closestDate);
+                }
             }
         }
 

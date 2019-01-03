@@ -119,7 +119,7 @@
                     </s:if>
                     <s:else>
                         <s:if test="%{reservationListByBook.size()<resaLimits}">
-                            <s:if test="%{isFlag()}">
+                            <s:if test="%{flag}">
                                 <td>Non disponible.</td>
                                 <td>Reservation impossible. Vous avez deja emprunté ce livre.</td>
                             </s:if>

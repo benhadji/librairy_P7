@@ -98,7 +98,7 @@ public class ResaBookAction extends AbstractResource implements SessionAware {
                 for (Reservation reservation : reservationListByUser){
                     if (reservation.getISBN().equals(book.getISBN())){
                         addActionMessage("Vous avez deja reservé ce livre !");
-                        return "succes";
+                        return "success";
                     }
                 }
 

@@ -169,7 +169,6 @@ public class SearchAction extends AbstractResource implements SessionAware {
 
 
                     for (Borrow borrow : borrowList){  // Pour voir si le user a emprunter le livre qu'il veut reserver
-                        flag = false;
                         if (book.getISBN().equals(borrow.getISBN())){
                             flag = true;
                         }
